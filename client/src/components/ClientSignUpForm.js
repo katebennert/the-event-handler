@@ -17,7 +17,7 @@ function ClientSignUpForm() {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/client-signup", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
