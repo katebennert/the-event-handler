@@ -76,7 +76,7 @@ function ClientSignUpForm() {
         </div>
 
         <div>
-          <button className="sign-up-in-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+          <button className="login-signup-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
         </div>
 
         <div className="errors-container">

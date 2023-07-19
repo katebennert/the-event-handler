@@ -19,13 +19,35 @@
 
 .login-signup-container {
   background-color: rgba(255, 255, 255, 0.747);
-  text-align: center;
   width: 20vw;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.login-signup-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-signup-container input {
+  height: 2em;
+  border-width: 1px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .login-signup-container h2 {
   font-family: 'Satisfy', cursive;
+  text-align: center;
+}
+
+.login-signup-btn {
+  width: 100%;
+  border-radius: 10px;
+  height: 2em;
+  margin-top: 5px;
 }
 
 .sign-up-login-switch {

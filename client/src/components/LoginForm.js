@@ -56,7 +56,7 @@ function LoginForm() {
           />
         </div>
         <div>
-          <button className="sign-up-in-btn" type="submit">
+          <button className="login-signup-btn" type="submit">
             {isLoading ? "Loading..." : "Login"}
           </button>
         </div>
