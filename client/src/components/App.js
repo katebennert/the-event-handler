@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
-//import NavBar from "./NavBar"
-//import { Switch, Route } from "react-router-dom";
+import NavBar from "./NavBar"
+import { Switch, Route } from "react-router-dom";
 import { UserContext } from "../context/user";
 import LoginPage from "./LoginPage";
 import "../App.css";
@@ -23,9 +23,9 @@ function App() {
     if (!user) return <LoginPage />;
 
     return (
-        <>Hello World
-            {/* <NavBar />
-            <main>
+        <>Hello World, {user.email}
+            <NavBar />
+            {/* <main>
                 <Switch>
                     <Route path="/offerings/:id">
                         <OfferingPage offerings={offerings} setOfferings={setOfferings} />
