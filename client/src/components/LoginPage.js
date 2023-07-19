@@ -7,7 +7,7 @@ function LoginPage() {
 
   return (
     <>
-        {/* <img className="logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" /> */}
+        <img className="logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" />
             {showSignUp ? (
                 <>
                     <ClientSignUpForm />

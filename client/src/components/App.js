@@ -23,7 +23,7 @@ function App() {
     if (!user) return <LoginPage />;
 
     return (
-        <>Hello World, {user.email}
+        <>
             <NavBar />
             {/* <main>
                 <Switch>

@@ -14,17 +14,37 @@ function NavBar() {
   }
 
   return (
-    <nav className="navbar">
-      <div className="left-section">
-        <NavLink to={`/`}><img className="home-link-logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" /></NavLink>
-        <span className="greeting">Hello, {user.email}!</span>
-      </div>
-        <ul className="nav-links">
-          {/* <li><NavLink to={`/offerings`} className="nav-link">View Offerings</NavLink></li>
-          <li><NavLink to={`/new-offering`} className="nav-link">Create an Offering</NavLink></li> */}
-          <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
-        </ul>
-    </nav>
+    <>
+    {user.role === 'client' ? 
+        <div className="client-nav">
+            <nav className="navbar">
+            <div className="left-section">
+                <NavLink to={`/`}><img className="home-link-logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" /></NavLink>
+                <span className="greeting">Hello, {user.role}!</span>
+            </div>
+                <ul className="nav-links">
+                {/* <li><NavLink to={`/offerings`} className="nav-link">View Offerings</NavLink></li>
+                <li><NavLink to={`/new-offering`} className="nav-link">Create an Offering</NavLink></li> */}
+                <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
+                </ul>
+            </nav>
+        </div>
+        :
+        <div className="planner-nav">
+            <nav className="navbar">
+            <div className="left-section">
+                <NavLink to={`/`}><img className="home-link-logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" /></NavLink>
+                <span className="greeting">Hello, {user.role}!</span>
+            </div>
+                <ul className="nav-links">
+                {/* <li><NavLink to={`/offerings`} className="nav-link">View Offerings</NavLink></li>
+                <li><NavLink to={`/new-offering`} className="nav-link">Create an Offering</NavLink></li> */}
+                <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
+                </ul>
+            </nav>
+        </div>
+    }
+    </>
   );
 }
 
