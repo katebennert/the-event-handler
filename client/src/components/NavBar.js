@@ -23,8 +23,8 @@ function NavBar() {
                 <span className="greeting">Hello, {user.role}!</span>
             </div>
                 <ul className="nav-links">
-                {/* <li><NavLink to={`/offerings`} className="nav-link">View Offerings</NavLink></li>
-                <li><NavLink to={`/new-offering`} className="nav-link">Create an Offering</NavLink></li> */}
+                <li><NavLink to={`/`} className="nav-link">Browse Venues</NavLink></li>
+                <li><NavLink to={`/`} className="nav-link">My Events</NavLink></li>
                 <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
                 </ul>
             </nav>
@@ -37,8 +37,9 @@ function NavBar() {
                 <span className="greeting">Hello, {user.role}!</span>
             </div>
                 <ul className="nav-links">
-                {/* <li><NavLink to={`/offerings`} className="nav-link">View Offerings</NavLink></li>
-                <li><NavLink to={`/new-offering`} className="nav-link">Create an Offering</NavLink></li> */}
+                <li><NavLink to={`/`} className="nav-link">Browse Venues</NavLink></li>
+                <li><NavLink to={`/`} className="nav-link">My Events</NavLink></li>
+                <li><NavLink to={`/`} className="nav-link">My Clients</NavLink></li>
                 <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
                 </ul>
             </nav>

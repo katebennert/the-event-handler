@@ -6,8 +6,8 @@ function LoginPage() {
   const [showSignUp, setShowSignUp] = useState(false);
 
   return (
-    <>
-        <img className="logo" src="https://i.imgur.com/pDinA3g.png" alt="UpFed Logo" />
+    <div className="login-page">
+        <div className="login-signup-container">
             {showSignUp ? (
                 <>
                     <ClientSignUpForm />
@@ -29,7 +29,8 @@ function LoginPage() {
                     </p>
                 </>
             )}
-    </>
+        </div>
+    </div>
   );
 }
 

@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/*LOGIN PAGE*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-page {
+  background-image: url("https://lh3.googleusercontent.com/pw/AIL4fc_9OXejCfilFGr0Vcfsrikw38u4ZaYtCT8RPulRqobmM_2YAraSdtDGA5G_5ij5VLF38CgAyt7WvzZz2tCTew-IhkWG0FoMEHVn9Ub7LenI2iyXvYuFjfT13R8PT16Oi1tSj8vS8XMFby0gosR6eEHIsA2mQWhEpaqyT3Gq2c80DYsoRYmvkLliVYOjY1i8EPAINaKV73qZy7EJtpEjD2F3WxdgM6W4AMYFZOKk3FyZWTah1A2Vrt9Vcb4DaRGhRy375XveDE8gUk4T-Gs1nFS5dNzH1PlrOn6TwKQL5P1JTWZr6_rnOZ1L4kGaldJCqEzA-yTsmVKI3TtGkoTNIkxS5zSsjcl9pGPnRQMNpnoczA-95VeJKHIsTRVB7BjS7xoWw8y3O0Ur8VEjE507ByTKkLKY_Tfj4_A7IWhECUz-F4fRz8xhuV_60Zy-0IsnrqlUkESohsBf3eoUi3K6LZG9hvfj5VpbSr75nKkqm-sosH9uRL7H3qgTlKeg3Sj1dsHu4ox71nyQCeOoAqjRxtu9GToDRW3PVhZWkjX0KZmXv-nvHLCvDz_6ubzw_Q0Wa4XhNR2oyfEXKAxzVcZrWHzxs5fxohvMAyISyz0O-DVamrKO7HuFcWQ_sZGij8fy2B_eWOtdbjmq8qUjoNFYzZ9_ZNRn3UvU2ewSeWIbaZRU63z4vjRS1KX8fKpO59gd0vTB2787OYYGOuOuOqJJECalbr76_F7SxUP8wxMg6BbnzpW1N75S_oe0HGKHNWYeb-l7x8xNQLLxBSwhTG4keSPhven5CzWfSSXygyAKFiB6oLz0wFGaWA8EFRue2C0wDrtoGP1ito0ePVjcfYk2Oqj3rS3GoQOMsw0vsChBec-reAa_Revb17q4jgnIfA6yRDNrmca0NkUnOkW8ThEbsZnsjIY=w1320-h943-s-no?authuser=0");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 99vh;
+  padding-top: 10px;
+  color: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login-signup-container {
+  background-color: rgba(255, 255, 255, 0.747);
+  text-align: center;
+  width: 20vw;
+  border-radius: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-signup-container h2 {
+  font-family: 'Satisfy', cursive;
 }
+
+.sign-up-login-switch {
+  text-decoration: underline;
+}
+
+.sign-up-login-switch:hover {
+  color:green;
+  cursor: pointer;
+}
+
+/*NAVBAR*/
+
+.navbar {
+  font-family: 'Prata', serif;
+  color: rgb(66, 197, 66);
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d9ff0051;
+  padding-top: 5px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.greeting {
+  color: hotpink;
+  padding-left: 10px;
+}
+
+.home-link-logo {
+  width: 10vw;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-link {
+  color: rgb(66, 197, 66);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.logout-span {
+  padding-right: 10px;
+  font-size: 12px;
+  color:  rgb(66, 197, 66);
+}
+
+.logout-span:hover {
+  color: black;
+  cursor: pointer;
+}
+
