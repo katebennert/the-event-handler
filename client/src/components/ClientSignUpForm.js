@@ -3,7 +3,7 @@ import { UserContext } from "../context/user";
 //import { useHistory } from "react-router";
 
 function ClientSignUpForm() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
@@ -23,7 +23,7 @@ function ClientSignUpForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
+        email,
         password,
         password_confirmation: passwordConfirmation
       }),
@@ -40,16 +40,16 @@ function ClientSignUpForm() {
 
   return (
     <div className="sign-up-container">
-      <h2>Sign up for UpFed</h2>
+      <h2>Sign up for EventHandler</h2>
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username </label>
+          <label htmlFor="email">Email </label>
           <input
             type="text"
-            id="username"
+            id="email"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 

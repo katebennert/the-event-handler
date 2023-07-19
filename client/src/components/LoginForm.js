@@ -4,7 +4,7 @@ import { UserContext } from "../context/user";
 
 
 function LoginForm() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ function LoginForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -37,13 +37,13 @@ function LoginForm() {
       <h2>Login</h2>
       <form className="login-form" onSubmit={handleSubmit}> 
         <div className="form-group">
-          <label htmlFor="username">Username </label>
+          <label htmlFor="email">Email </label>
           <input
             type="text"
             id="username"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
         />
         <div className="form-group">
           <label htmlFor="password">Password </label>
