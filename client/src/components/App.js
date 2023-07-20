@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import NavBar from "./NavBar"
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import { UserContext } from "../context/user";
 import LoginPage from "./LoginPage";
 import "../App.css";
@@ -24,6 +24,9 @@ function App() {
 
     return (
         <>
+          <div className="top-logo-container">
+            <NavLink to={`/`}><img className="home-link-logo" src="https://i.imgur.com/qoVLQkK.png" alt="Event Handler Logo" /></NavLink>
+          </div>
             <NavBar />
             {/* <main>
                 <Switch>

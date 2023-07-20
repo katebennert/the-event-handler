@@ -20,7 +20,7 @@
 .login-signup-container {
   background-color: rgba(255, 255, 255, 0.747);
   width: 20vw;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -41,13 +41,25 @@
 .login-signup-container h2 {
   font-family: 'Satisfy', cursive;
   text-align: center;
+  font-size: 2em;
 }
 
 .login-signup-btn {
   width: 100%;
   border-radius: 10px;
+  border-width: 0px;
   height: 2em;
   margin-top: 5px;
+  background-color: green;
+  border-color: green;
+  color: white;
+  font-size: medium;
+  text-decoration: bold;
+}
+
+.login-signup-btn:hover {
+  background-color: rgb(84, 146, 84);
+  cursor: pointer;
 }
 
 .sign-up-login-switch {
@@ -59,17 +71,32 @@
   cursor: pointer;
 }
 
+/*APP/HOME*/
+
+.top-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-link-logo {
+  width: 15vw;
+}
+
 /*NAVBAR*/
 
 .navbar {
-  font-family: 'Prata', serif;
-  color: rgb(66, 197, 66);
   font-size: large;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  background-color: #d9ff0051;
-  padding-top: 5px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: darkgray;
+  font-size: 14px;
 }
 
 .left-section {
@@ -78,13 +105,10 @@
 }
 
 .greeting {
-  color: hotpink;
-  padding-left: 10px;
+  color: darkgreen;
 }
 
-.home-link-logo {
-  width: 10vw;
-}
+
 
 .nav-links {
   list-style: none;
@@ -94,11 +118,11 @@
 }
 
 .nav-links li {
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 .nav-link {
-  color: rgb(66, 197, 66);
+  color: rgb(43, 43, 43);
   text-decoration: none;
 }
 
@@ -107,13 +131,12 @@
 }
 
 .logout-span {
-  padding-right: 10px;
-  font-size: 12px;
-  color:  rgb(66, 197, 66);
+  color: rgb(43, 43, 43);
 }
 
 .logout-span:hover {
-  color: black;
+  color: darkgreen;
+  text-decoration: underline;
   cursor: pointer;
 }
 
