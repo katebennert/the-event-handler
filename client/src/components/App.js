@@ -3,6 +3,8 @@ import NavBar from "./NavBar"
 import { Switch, Route, NavLink } from "react-router-dom";
 import { UserContext } from "../context/user";
 import LoginPage from "./LoginPage";
+import UserProfile from "./UserProfile";
+import Home from "./Home";
 import "../App.css";
 
 
@@ -28,22 +30,22 @@ function App() {
             <NavLink to={`/`}><img className="home-link-logo" src="https://i.imgur.com/qoVLQkK.png" alt="Event Handler Logo" /></NavLink>
           </div>
             <NavBar />
-            {/* <main>
+            <main>
                 <Switch>
-                    <Route path="/offerings/:id">
-                        <OfferingPage offerings={offerings} setOfferings={setOfferings} />
+                    <Route path="/users/:id">
+                        <UserProfile />
                     </Route>
-                    <Route path="/new-offering">
+                    {/* <Route path="/new-offering">
                         <NewOffering offerings={offerings} setOfferings={setOfferings} />
                     </Route>
                     <Route path="/offerings">
                         <OfferingList offerings={offerings} setOfferings={setOfferings} />
-                    </Route>
+                    </Route> */}
                     <Route exact path="/">
-                        <Landing />
+                        <Home />
                     </Route>
                 </Switch>
-            </main> */}
+            </main>
         </>
     )
 }

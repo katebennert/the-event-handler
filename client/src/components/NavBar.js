@@ -24,7 +24,7 @@ function NavBar() {
                 <ul className="nav-links">
                 <li><NavLink to={`/`} className="nav-link">Browse Venues</NavLink></li>
                 <li><NavLink to={`/`} className="nav-link">My Events</NavLink></li>
-                <li><NavLink to={'/'} className="nav-link">My Profile</NavLink></li>
+                <li><NavLink to={`/users/${user.id}`} className="nav-link">My Profile</NavLink></li>
                 <li><span onClick={handleLogoutClick} className="logout-span">Logout</span></li>
                 </ul>
             </nav>
