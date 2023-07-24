@@ -12,9 +12,22 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
+    def set_avatar
+        byebug
+        if params[:avatar].present?
+            begin 
+                @current_user.avatar.attach(params[:avatar])
+                @current_user.save!
+                render json: @current_user, status: :ok
+            rescue StandardError => e
+                render json: {errors: ["Error uploading avatar: #{e.message}"]}, status: :internal_server_error
+            end
+        end
+    end    
+
     private
 
     def user_params
-        params.permit(:email, :password, :password_confirmation, :image, :bio)
+        params.permit(:email, :password, :password_confirmation, :image, :bio, :avatar)
     end
 end
