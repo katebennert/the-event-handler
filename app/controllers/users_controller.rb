@@ -14,20 +14,22 @@ class UsersController < ApplicationController
 
     def set_avatar
         byebug
-        if params[:avatar].present?
-            begin 
-                @current_user.avatar.attach(params[:avatar])
-                @current_user.save!
-                render json: @current_user, status: :ok
-            rescue StandardError => e
-                render json: {errors: ["Error uploading avatar: #{e.message}"]}, status: :internal_server_error
-            end
+        if params[:avatar]
+          begin
+            @current_user.avatar.attach(params[:avatar])
+            @current_user.save
+            render json: @current_user, serializer: UserSerializer, status: :ok
+          rescue StandardError => e
+            render json: { errors: ["Avatar upload failed: #{e.message}"] }, status: :internal_server_error
+          end
+        else
+          render json: { errors: 'No avatar file provided' }, status: :unprocessable_entity
         end
-    end    
+    end
 
     private
 
     def user_params
-        params.permit(:email, :password, :password_confirmation, :image, :bio, :avatar)
+        params.permit(:email, :password, :password_confirmation, :image, :bio, :avatar, :id)
     end
 end
