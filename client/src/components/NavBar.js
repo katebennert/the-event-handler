@@ -15,7 +15,7 @@ function NavBar() {
 
   return (
     <>
-    {user.role === 'client' ? 
+    {user.role === 'Client' ? 
         <div className="client-nav">
             <nav className="navbar">
             <div className="left-section">

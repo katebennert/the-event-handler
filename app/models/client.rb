@@ -1,7 +1,5 @@
 class Client < User
-
-    def self.all
-        User.where(role: 'client')
-    end
+    has_many :events, foreign_key: 'client_id'
+    has_many :planners, through: :events
 
 end

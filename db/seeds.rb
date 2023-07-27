@@ -12,4 +12,14 @@ puts 'Seeding 🌱'
         })
     end
 
+    Event.create({
+        client_id: 1,
+        planner_id: nil,
+        venue_id: 1,
+        budget: 150000,
+        date: Time.now,
+        event_type: "wedding",
+        guest_num: 200
+    })
+
 puts 'Seeding complete! ✅'

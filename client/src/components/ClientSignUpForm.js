@@ -6,6 +6,7 @@ function ClientSignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [role, setRole] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +26,8 @@ function ClientSignUpForm() {
       body: JSON.stringify({
         email,
         password,
-        password_confirmation: passwordConfirmation
+        password_confirmation: passwordConfirmation,
+        role
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -72,6 +74,18 @@ function ClientSignUpForm() {
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
+          />
+        </div>
+
+        {/**chang to dropdown */}
+
+        <div className="form-group">
+          <label htmlFor="role">What type of account do you need? </label>
+          <input
+            type="role"
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
           />
         </div>
 

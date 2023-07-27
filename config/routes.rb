@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :events
   resources :venues
    # login/logout/sign up
    post '/signup', to: 'users#create'
