@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import { UserContext } from "../context/user";
 import LoginPage from "./LoginPage";
 import UserProfile from "./UserProfile";
+import VenueList from "./VenueList";
 import Home from "./Home";
 import "../App.css";
 
@@ -35,12 +36,13 @@ function App() {
                     <Route path="/users/:id">
                         <UserProfile />
                     </Route>
+                    <Route path="/venues">
+                        <VenueList />
+                    </Route>
                     {/* <Route path="/new-offering">
                         <NewOffering offerings={offerings} setOfferings={setOfferings} />
                     </Route>
-                    <Route path="/offerings">
-                        <OfferingList offerings={offerings} setOfferings={setOfferings} />
-                    </Route> */}
+                     */}
                     <Route exact path="/">
                         <Home />
                     </Route>
