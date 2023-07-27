@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
-//import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 function ClientSignUpForm() {
   const [email, setEmail] = useState("");
@@ -11,10 +11,9 @@ function ClientSignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { setUser } = useContext(UserContext);
-  //const history = useHistory();
+  const history = useHistory();
 
   function handleSubmit(e) {
-    //this will be a request to clients or planners
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
@@ -33,7 +32,7 @@ function ClientSignUpForm() {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((u) => setUser(u));
-        //history.push("/");
+        history.push("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
