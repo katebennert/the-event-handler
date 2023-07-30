@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import NavBar from "./NavBar"
 import { Switch, Route, NavLink } from "react-router-dom";
 import { UserContext } from "../context/user";
@@ -7,11 +7,13 @@ import UserProfile from "./UserProfile";
 import VenueList from "./VenueList";
 import Home from "./Home";
 import MyEventsPage from "./MyEventsPage";
+import VenueShowPage from "./VenueShowPage";
 import "../App.css";
 
 
 function App() {
     const { user, setUser } = useContext(UserContext);
+    const [venue, setVenue] = useState({});
     //const [offerings, setOfferings] = useState([]);
 
     useEffect(() => {
@@ -24,6 +26,10 @@ function App() {
         });
     }, [setUser]);
 
+    function handleVenueSet(venue) {
+        setVenue(venue)
+    }
+
     if (!user) return <LoginPage />;
 
     return (
@@ -34,14 +40,17 @@ function App() {
             <NavBar />
             <main>
                 <Switch>
-                    <Route path="/users/:id">
+                    <Route path="/users/:userId">
                         <UserProfile />
                     </Route>
-                    <Route path="/venues">
-                        <VenueList />
+                    <Route exact path="/venues">
+                        <VenueList handleVenueSet={handleVenueSet} venue={venue} />
                     </Route>
                     <Route path="/my-events">
                         <MyEventsPage />
+                    </Route>
+                    <Route path="/venues/:venueId">
+                        <VenueShowPage venue={venue} />
                     </Route>
                     <Route exact path="/">
                         <Home />

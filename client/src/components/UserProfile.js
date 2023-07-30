@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user";
+import { useParams } from 'react-router-dom';
 
 function UserProfile() {
 
   const { user } = useContext(UserContext);
+  const { userId } = useParams();
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [avatar, setAvatar] = useState(null);

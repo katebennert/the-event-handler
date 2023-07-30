@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-//import { NavLink } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+//import { VenuesContext } from "../context/venues";
+import { NavLink } from "react-router-dom";
 
-function VenueList() {
+function VenueList({ handleVenueSet, venue }) {
 
     const [venues, setVenues] = useState([]);
+    //const { venues, setVenues } = useContext(VenuesContext);
 
     useEffect(() => {
         fetch("/venues")
@@ -18,17 +20,22 @@ function VenueList() {
         });
     }, [setVenues]);
 
+    function handleVenueClick(id) {
+        handleVenueSet(venues.find(v => v.id === parseInt(id)))
+    }
+
     return (
         <div> 
-            {venues.map((venue) => (
-                    <div key={venue.id}>
-                        <p>{venue.name}</p>
-                        <p>{venue.seated_guest_capacity}</p>
-                        <p>{venue.venue_type}</p>
-                        <p>{venue.venue_setting}</p>
-                        <p>{venue.avg_cost}</p>
-                        <p>{venue.address}</p>
-                        <p>{venue.about}</p>
+            {venues.map((ven) => (
+                    <div key={ven.id}>
+                        <p>{ven.name}</p>
+                        <p>{ven.seated_guest_capacity}</p>
+                        <p>{ven.venue_type}</p>
+                        <p>{ven.venue_setting}</p>
+                        <p>{ven.avg_cost}</p>
+                        <p>{ven.address}</p>
+                        <p>{ven.about}</p>
+                        <NavLink to={`/venues/${ven.id}`}><button onClick={e => handleVenueClick(ven.id)} ></button></NavLink>
                     </div>
                 )
             )}

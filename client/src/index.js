@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import { UserProvider } from "./context/user";
+//import { VenuesProvider } from "./context/venues";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
+      {/* <VenuesProvider> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
+      {/* </VenuesProvider> */}
     </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
