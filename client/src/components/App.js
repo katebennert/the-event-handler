@@ -6,6 +6,7 @@ import LoginPage from "./LoginPage";
 import UserProfile from "./UserProfile";
 import VenueList from "./VenueList";
 import Home from "./Home";
+import MyEventsPage from "./MyEventsPage";
 import "../App.css";
 
 
@@ -39,10 +40,9 @@ function App() {
                     <Route path="/venues">
                         <VenueList />
                     </Route>
-                    {/* <Route path="/new-offering">
-                        <NewOffering offerings={offerings} setOfferings={setOfferings} />
+                    <Route path="/my-events">
+                        <MyEventsPage />
                     </Route>
-                     */}
                     <Route exact path="/">
                         <Home />
                     </Route>
