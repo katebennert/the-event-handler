@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
-import ClientSignUpForm from "./ClientSignUpForm";
+import SignUpForm from "./SignUpForm";
 
 function LoginPage() {
   const [showSignUp, setShowSignUp] = useState(false);
@@ -10,7 +10,7 @@ function LoginPage() {
         <div className="login-signup-container">
             {showSignUp ? (
                 <>
-                    <ClientSignUpForm />
+                    <SignUpForm />
                     <p>
                         Already have an account? &nbsp;
                         <span className="sign-up-login-switch" onClick={() => setShowSignUp(false)}>

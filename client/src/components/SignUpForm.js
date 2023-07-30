@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
 import { useHistory } from "react-router";
 
-function ClientSignUpForm() {
+function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -103,4 +103,4 @@ function ClientSignUpForm() {
   );
 }
 
-export default ClientSignUpForm;
+export default SignUpForm;
