@@ -100,6 +100,11 @@
   color: rgb(43, 43, 43);
 }
 
+.notification-dot {
+  font-size: 6px;
+  vertical-align: top;
+}
+
 .left-section {
   display: flex;
   align-items: center;
