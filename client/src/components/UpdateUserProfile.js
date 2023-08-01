@@ -4,7 +4,7 @@ import { UserContext } from "../context/user";
 
 function UpdateUserProfile() {
 
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   //const { userId } = useParams();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -61,7 +61,7 @@ function UpdateUserProfile() {
             r.json().then((userData) => {
               setLoading(false);
               setIsEditing(false);
-              console.log(userData)
+              setUser(userData)
             }
             );
         } else {
@@ -121,7 +121,6 @@ function UpdateUserProfile() {
                   <textarea
                     type="text"
                     name="bio"
-                    autoComplete="off"
                     value={updatedUser.bio ? updatedUser.bio : ""}
                     onChange={handleChange}
                   />
@@ -129,11 +128,10 @@ function UpdateUserProfile() {
                 
               </div>
 
+            </div>
 
-          </div>
 
-
-            <button type="submit">Save Changes</button>
+          <button type="submit">Save Changes</button>
           
         </form>
 

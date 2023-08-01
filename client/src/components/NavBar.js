@@ -19,7 +19,7 @@ function NavBar() {
         <div className="client-nav">
             <nav className="navbar">
             <div className="left-section">
-                <span className="greeting">Hello, {user.email}!</span>
+                <span className="greeting">Hello, {user.name}!</span>
             </div>
                 <ul className="nav-links">
                 <li><NavLink to={`/venues`} className="nav-link">Browse Venues</NavLink></li>
@@ -33,7 +33,7 @@ function NavBar() {
         <div className="planner-nav">
             <nav className="navbar">
             <div className="left-section">
-                <span className="greeting">Hello, {user.email}!</span>
+                <span className="greeting">Hello, {user.name}!</span>
             </div>
                 <ul className="nav-links">
                 <li><NavLink to={`/venues`} className="nav-link">Browse Venues</NavLink></li>
