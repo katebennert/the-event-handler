@@ -12,24 +12,29 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
-    def set_avatar
-        byebug
-        if params[:avatar]
-          begin
-            @current_user.avatar.attach(params[:avatar])
-            @current_user.save
-            render json: @current_user, serializer: UserSerializer, status: :ok
-          rescue StandardError => e
-            render json: { errors: ["Avatar upload failed: #{e.message}"] }, status: :internal_server_error
-          end
-        else
-          render json: { errors: 'No avatar file provided' }, status: :unprocessable_entity
-        end
+    def edit_profile
+      current_user.update!(user_params)
+      render json: current_user, status: :accepted
     end
+
+    # def set_avatar
+    #     byebug
+    #     if params[:avatar]
+    #       begin
+    #         @current_user.avatar.attach(params[:avatar])
+    #         @current_user.save
+    #         render json: @current_user, serializer: UserSerializer, status: :ok
+    #       rescue StandardError => e
+    #         render json: { errors: ["Avatar upload failed: #{e.message}"] }, status: :internal_server_error
+    #       end
+    #     else
+    #       render json: { errors: 'No avatar file provided' }, status: :unprocessable_entity
+    #     end
+    # end
 
     private
 
     def user_params
-        params.permit(:email, :password, :password_confirmation, :image, :bio, :avatar, :id, :role)
+        params.permit(:email, :name, :password, :password_confirmation, :image, :bio, :avatar, :id, :role)
     end
 end
