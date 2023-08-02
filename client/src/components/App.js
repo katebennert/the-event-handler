@@ -3,7 +3,7 @@ import NavBar from "./NavBar"
 import { Switch, Route, NavLink } from "react-router-dom";
 import { UserContext } from "../context/user";
 import LoginPage from "./LoginPage";
-import UpdateUserProfile from "./UpdateUserProfile";
+import UserProfile from "./UserProfile";
 import VenueList from "./VenueList";
 import Home from "./Home";
 import MyEventsPage from "./MyEventsPage";
@@ -41,7 +41,7 @@ function App() {
             <main>
                 <Switch>
                     <Route path="/users/:userId">
-                        <UpdateUserProfile />
+                        <UserProfile />
                     </Route>
                     <Route exact path="/venues">
                         <VenueList handleVenueSet={handleVenueSet} venue={venue} />

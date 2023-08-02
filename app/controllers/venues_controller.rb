@@ -5,4 +5,9 @@ class VenuesController < ApplicationController
         render json: venues, status: :ok
     end
 
+    def show
+        venue = Venue.find(params[:id])
+        render json: venue, status: :ok
+    end
+
 end

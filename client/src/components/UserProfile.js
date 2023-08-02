@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user";
-//import { useParams } from 'react-router-dom';
 
-function UpdateUserProfile() {
+function UserProfile() {
 
   const { user, setUser } = useContext(UserContext);
-  //const { userId } = useParams();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -177,4 +175,4 @@ function UpdateUserProfile() {
   );
 }
 
-export default UpdateUserProfile;
+export default UserProfile;
