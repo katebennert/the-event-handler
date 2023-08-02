@@ -8,6 +8,7 @@ import VenueList from "./VenueList";
 import Home from "./Home";
 import MyEventsPage from "./MyEventsPage";
 import VenueShowPage from "./VenueShowPage";
+import NewEvent from "./NewEvent";
 import "../App.css";
 
 
@@ -51,6 +52,9 @@ function App() {
                     </Route>
                     <Route path="/venues/:venueId">
                         <VenueShowPage venue={venue} />
+                    </Route>
+                    <Route path="/events/new">
+                        <NewEvent />
                     </Route>
                     <Route exact path="/">
                         <Home />
