@@ -5,9 +5,14 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_response
 
   before_action :authorized
+  before_action :planner_auth
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def planner_auth
+    render json: { errors: ["Not Authorized"] }, status: :unauthorized unless session[:user_role] == "Planner"
   end
    
   def authorized

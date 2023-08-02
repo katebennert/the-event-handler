@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
 
+    skip_before_action :planner_auth
+
     def index
         venues = Venue.all 
         render json: venues, status: :ok
