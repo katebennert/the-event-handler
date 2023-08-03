@@ -18,9 +18,10 @@ function MyEventsPage() {
             
             {user.events.map((event) => (
                     <div key={event.id}>
-                        <p>{event.client.name}</p>
+                        <p>{event.name}</p>
                         <p>{event.event_type}</p>
-                        <p>{event.date}</p>
+                        <p>{new Date(event.date).toLocaleDateString("en-US")}</p>
+                        <p>{new Date(event.date).toLocaleTimeString("en-US")}</p>
                     </div>
                 )
             )}

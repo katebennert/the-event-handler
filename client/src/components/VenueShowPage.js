@@ -47,7 +47,7 @@ function MyEventsPage({ venue }) {
                 {showNewEventForm && (
                     <div className="modal">
                         <div className="modal-content">
-                            <NewEvent onCloseNewEventForm={handleCloseNewEventForm} />
+                            <NewEvent onCloseNewEventForm={handleCloseNewEventForm} currentVenue={currentVenue} />
                         </div>
                     </div>
                 )}
