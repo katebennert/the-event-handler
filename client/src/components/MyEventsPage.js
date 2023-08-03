@@ -15,7 +15,7 @@ function MyEventsPage() {
     return (
         <div> 
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyEventSearchSubmit={handleMyEventSearchSubmit} />
-            <NavLink to={`/events/new`}>Create New Event</NavLink>
+            
             {user.events.map((event) => (
                     <div key={event.id}>
                         <p>{event.client.name}</p>

@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 
-function VenueList({ handleVenueSet, venue }) {
+function VenueList({ handleVenueSet }) {
 
     const [venues, setVenues] = useState([]);
+    const [venuesToDisplay, setVenuesToDisplay] = useState([]);
+    const [noResults, setNoResults] = useState(false);
     const placeholderText = "Search venues...";
     const searchCategory = "all venues";
 
@@ -14,6 +16,7 @@ function VenueList({ handleVenueSet, venue }) {
             if (r.ok) {
                 r.json().then((venues) => {
                     setVenues(venues)
+                    setVenuesToDisplay(venues)
                 });
             } else {
                 r.json().then((err) => console.log(err.errors));
@@ -26,14 +29,17 @@ function VenueList({ handleVenueSet, venue }) {
     }
 
     function handleAllVenueSearchSubmit(searchQuery) {
-        console.log(searchQuery)
+        const filteredVenues = venues.filter(v => v.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        filteredVenues.length === 0 ? setNoResults(true) : setNoResults(false);
+        setVenuesToDisplay(filteredVenues);
     }
 
     return (
         <div> 
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onAllEventSearchSubmit={handleAllVenueSearchSubmit} />
-           
-            {venues.map((ven) => (
+           {noResults ? "There are no venues that match this search." 
+           :
+            venuesToDisplay.map((ven) => (
                     <div key={ven.id}>
                         <p>{ven.name}</p>
                         <p>{ven.seated_guest_capacity}</p>
@@ -45,7 +51,8 @@ function VenueList({ handleVenueSet, venue }) {
                         <NavLink to={`/venues/${ven.id}`}><button onClick={e => handleVenueClick(ven.id)} ></button></NavLink>
                     </div>
                 )
-            )}
+            )
+            }
         </div>
     )
 }

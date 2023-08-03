@@ -17,7 +17,6 @@ import MyClientsPage from "./MyClientsPage";
 function App() {
     const { user, setUser } = useContext(UserContext);
     const [venue, setVenue] = useState({});
-    //const [offerings, setOfferings] = useState([]);
 
     useEffect(() => {
         // auto-login
@@ -47,7 +46,7 @@ function App() {
                         <UserProfile />
                     </Route>
                     <Route exact path="/venues">
-                        <VenueList handleVenueSet={handleVenueSet} venue={venue} />
+                        <VenueList handleVenueSet={handleVenueSet} />
                     </Route>
                     <Route exact path="/events">
                         <MyEventsPage />
@@ -55,9 +54,9 @@ function App() {
                     <Route path="/venues/:venueId">
                         <VenueShowPage venue={venue} />
                     </Route>
-                    <Route path="/events/new">
+                    {/* <Route path="/events/new">
                         <NewEvent />
-                    </Route>
+                    </Route> */}
                     <Route path="/my-clients">
                         <MyClientsPage />
                     </Route>

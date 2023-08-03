@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import NewEvent from "./NewEvent";
 
 function MyEventsPage({ venue }) {
 
     const venueId = useParams();
     const [currentVenue, setCurrentVenue] = useState({});
     const [notFound, setNotFound] = useState(false);
+    const [showNewEventForm, setShowNewEventForm] = useState(false);
 
     const notFoundMessage = "Oops! This venue doesn't exist in our database."
 
@@ -27,6 +29,9 @@ function MyEventsPage({ venue }) {
         }
     }, [setCurrentVenue, venue, venueId.venueId]);
     
+    function handleCloseNewEventForm() {
+        setShowNewEventForm(false);
+    }
 
     return (
         <div> 
@@ -37,6 +42,15 @@ function MyEventsPage({ venue }) {
             :
             <div>
                 Venue Show Page: {currentVenue.name}
+                <button onClick={e => setShowNewEventForm(true)}>Add an Event at This Venue</button>
+
+                {showNewEventForm && (
+                    <div className="modal">
+                        <div className="modal-content">
+                            <NewEvent onCloseNewEventForm={handleCloseNewEventForm} />
+                        </div>
+                    </div>
+                )}
             </div>
         }
         </div>

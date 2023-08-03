@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 
-function NewEvent() {
+function NewEvent({ onCloseNewEventForm }) {
     
     function handleNewEventSubmit(e) {
         e.preventDefault();
         console.log("submitted")
+        onCloseNewEventForm();
     }
 
     return (
