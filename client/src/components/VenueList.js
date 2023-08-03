@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-//import { VenuesContext } from "../context/venues";
+import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 
 function VenueList({ handleVenueSet, venue }) {
 
     const [venues, setVenues] = useState([]);
-    //const { venues, setVenues } = useContext(VenuesContext);
+    const placeholderText = "Search venues...";
 
     useEffect(() => {
         fetch("/venues")
@@ -26,6 +26,8 @@ function VenueList({ handleVenueSet, venue }) {
 
     return (
         <div> 
+            <SearchBar placeholderText={placeholderText} />
+           
             {venues.map((ven) => (
                     <div key={ven.id}>
                         <p>{ven.name}</p>

@@ -7,9 +7,11 @@ import UserProfile from "./UserProfile";
 import VenueList from "./VenueList";
 import Home from "./Home";
 import MyEventsPage from "./MyEventsPage";
+import MyVenuesPage from "./MyVenuesPage";
 import VenueShowPage from "./VenueShowPage";
 import NewEvent from "./NewEvent";
 import "../App.css";
+import MyClientsPage from "./MyClientsPage";
 
 
 function App() {
@@ -47,7 +49,7 @@ function App() {
                     <Route exact path="/venues">
                         <VenueList handleVenueSet={handleVenueSet} venue={venue} />
                     </Route>
-                    <Route path="/my-events">
+                    <Route exact path="/events">
                         <MyEventsPage />
                     </Route>
                     <Route path="/venues/:venueId">
@@ -55,6 +57,12 @@ function App() {
                     </Route>
                     <Route path="/events/new">
                         <NewEvent />
+                    </Route>
+                    <Route path="/my-clients">
+                        <MyClientsPage />
+                    </Route>
+                    <Route path="/my-venues">
+                        <MyVenuesPage />
                     </Route>
                     <Route exact path="/">
                         <Home />

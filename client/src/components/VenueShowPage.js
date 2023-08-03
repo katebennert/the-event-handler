@@ -25,7 +25,7 @@ function MyEventsPage({ venue }) {
         } else {
             setCurrentVenue(venue)
         }
-    }, [setCurrentVenue]);
+    }, [setCurrentVenue, venue, venueId.venueId]);
     
 
     return (

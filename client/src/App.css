@@ -226,3 +226,53 @@ input::file-selector-button:hover {
   padding-right: 10vw;
   border:solid;
 }
+
+/*NEW EVENT FORM*/
+
+.new-event-form-container {
+  border-radius: 5px;
+  border: none;
+  background-color: darkgreen;
+  width: 70vw;
+  margin: 0 auto;
+
+}
+
+/*SEARCH BAR*/
+
+.search-form {
+  margin-top: 10px;
+}
+
+.search-bar {
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: solid;
+  border-width: 1px;
+  border-color: darkgray;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: darkgreen;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-bar button:hover {
+  background-color: rgb(0, 176, 0);
+}
