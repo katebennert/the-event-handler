@@ -6,6 +6,7 @@ function VenueList({ handleVenueSet, venue }) {
 
     const [venues, setVenues] = useState([]);
     const placeholderText = "Search venues...";
+    const searchCategory = "all venues";
 
     useEffect(() => {
         fetch("/venues")
@@ -24,9 +25,13 @@ function VenueList({ handleVenueSet, venue }) {
         handleVenueSet(venues.find(v => v.id === parseInt(id)))
     }
 
+    function handleAllVenueSearchSubmit(searchQuery) {
+        console.log(searchQuery)
+    }
+
     return (
         <div> 
-            <SearchBar placeholderText={placeholderText} />
+            <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onAllEventSearchSubmit={handleAllVenueSearchSubmit} />
            
             {venues.map((ven) => (
                     <div key={ven.id}>

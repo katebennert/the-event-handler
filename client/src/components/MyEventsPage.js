@@ -6,10 +6,15 @@ import SearchBar from "./SearchBar";
 function MyEventsPage() {
     const { user } = useContext(UserContext);
     const placeholderText = "Find an event from your list...";
+    const searchCategory = "my events";
+
+    function handleMyEventSearchSubmit(searchQuery) {
+        console.log(searchQuery)
+    }
 
     return (
         <div> 
-            <SearchBar placeholderText={placeholderText} />
+            <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyEventSearchSubmit={handleMyEventSearchSubmit} />
             <NavLink to={`/events/new`}>Create New Event</NavLink>
             {user.events.map((event) => (
                     <div key={event.id}>

@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 
-function SearchBar({ placeholderText }) {
+function SearchBar({ placeholderText, searchCategory, onMyEventSearchSubmit, onMyClientSearchSubmit, onMyVenueSearchSubmit, onAllEventSearchSubmit }) {
 
     const [searchQuery, setSearchQuery] = useState("");
 
     function handleSearchSubmit(e) {
         e.preventDefault();
-        console.log(searchQuery)
 
-        //switch statement for which query it is and links to a specific finction in that component and send the searchQuery value as an argument
+        switch (searchCategory) {
+            case "my events":
+                onMyEventSearchSubmit(searchQuery);
+                break;
+            case "my clients":
+                onMyClientSearchSubmit(searchQuery);
+                break;
+            case "my venues":
+                onMyVenueSearchSubmit(searchQuery);
+                break;
+            default:
+                onAllEventSearchSubmit(searchQuery);
+        }
     }
 
     return (

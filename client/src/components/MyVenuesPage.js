@@ -6,10 +6,15 @@ import SearchBar from "./SearchBar";
 function MyVenuesPage() {
     const { user } = useContext(UserContext);
     const placeholderText = "Find a venue from your list...";
+    const searchCategory = "my venues";
+
+    function handleMyVenueSearchSubmit(searchQuery) {
+        console.log(searchQuery)
+    }
 
     return (
         <div> 
-            <SearchBar placeholderText={placeholderText} />
+            <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyVenueSearchSubmit={handleMyVenueSearchSubmit} />
             
         </div>
     )
