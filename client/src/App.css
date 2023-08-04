@@ -4,7 +4,7 @@
 /*LOGIN PAGE*/
 
 .login-page {
-  background-color: rgb(221, 255, 170);
+  background-image: url('./eh-background.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
