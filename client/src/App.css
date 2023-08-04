@@ -31,7 +31,8 @@
   flex-direction: column;
 }
 
-.login-signup-container input {
+.login-signup-container input, 
+.login-signup-container select {
   height: 2em;
   border-width: 1px;
   border-radius: 5px;

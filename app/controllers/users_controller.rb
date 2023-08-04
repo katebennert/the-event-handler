@@ -2,8 +2,10 @@ class UsersController < ApplicationController
     skip_before_action :authorized, :planner_auth, only: :create
 
     def create
+        byebug
         user = User.create!(user_params)
         session[:user_id] = user.id
+        session[:user_role] = user.role
         render json: user, status: :created
     end
 

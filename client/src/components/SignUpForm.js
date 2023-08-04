@@ -76,16 +76,17 @@ function SignUpForm() {
           />
         </div>
 
-        {/**chang to dropdown */}
-
         <div className="form-group">
-          <label htmlFor="role">What type of account do you need? </label>
-          <input
-            type="role"
+          <label htmlFor="role">Account type </label>
+          <select
             id="role"
             value={role}
             onChange={(e) => setRole(e.target.value)}
-          />
+          >
+            <option value="help">Select one</option>
+            <option value="Client">Client</option>
+            <option value="Planner">Planner</option>
+          </select>
         </div>
 
         <div>
