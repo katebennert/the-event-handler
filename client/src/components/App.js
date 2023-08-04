@@ -9,7 +9,7 @@ import Home from "./Home";
 import MyEventsPage from "./MyEventsPage";
 import MyVenuesPage from "./MyVenuesPage";
 import VenueShowPage from "./VenueShowPage";
-import NewEvent from "./NewEvent";
+import EventShowPage from "./EventShowPage";
 import "../App.css";
 import MyClientsPage from "./MyClientsPage";
 
@@ -54,9 +54,9 @@ function App() {
                     <Route path="/venues/:venueId">
                         <VenueShowPage venue={venue} />
                     </Route>
-                    {/* <Route path="/events/new">
-                        <NewEvent />
-                    </Route> */}
+                    <Route path="/events/:eventId">
+                        <EventShowPage />
+                    </Route> 
                     <Route path="/my-clients">
                         <MyClientsPage />
                     </Route>

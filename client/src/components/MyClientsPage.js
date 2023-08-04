@@ -15,6 +15,7 @@ function MyClientsPage() {
     return (
         <div> 
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyClientSearchSubmit={handleMyClientSearchSubmit} />
+            {user.clients[0].name}
             
         </div>
     )

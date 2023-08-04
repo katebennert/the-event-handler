@@ -15,7 +15,7 @@ function MyVenuesPage() {
     return (
         <div> 
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyVenueSearchSubmit={handleMyVenueSearchSubmit} />
-            
+            {user.venues[0].name}
         </div>
     )
 }
