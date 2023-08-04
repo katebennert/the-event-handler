@@ -83,7 +83,7 @@ function SignUpForm() {
             value={role}
             onChange={(e) => setRole(e.target.value)}
           >
-            <option value="help">Select one</option>
+            <option value="">Select one</option>
             <option value="Client">Client</option>
             <option value="Planner">Planner</option>
           </select>

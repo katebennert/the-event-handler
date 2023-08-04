@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_response
-  rescue_from ActiveRecord::SubclassNotFound, with: :render_role_not_found_response
+  rescue_from ActiveRecord::SubclassNotFound, with: :render_unprocessable_entity_response
 
   before_action :authorized
   before_action :planner_auth
@@ -28,8 +28,8 @@ class ApplicationController < ActionController::API
     render json: { errors: exception }, status: :not_found
   end
 
-  def render_role_not_found_response(exception)
-    render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
-  end
+  # def render_role_not_found_response(exception)
+  #   render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+  # end
 
 end
