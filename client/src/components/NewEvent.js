@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
+import { useHistory } from "react-router";
 
 function NewEvent({ onCloseNewEventForm, currentVenue }) {
 
     const { user, setUser } = useContext(UserContext);
+    const history = useHistory();
 
     const [newEvent, setNewEvent] = useState({
         name: "",
@@ -19,9 +21,8 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
     
     function handleNewEventSubmit(e) {
         e.preventDefault();
-        console.log(newEvent);
         setIsLoading(true);
-        
+
         fetch("/events", {
             method: "POST",
             headers: {
@@ -29,17 +30,16 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
             },
             body: JSON.stringify(newEvent),
         }).then((r) => {
-            setIsLoading(false);
             if (r.ok) {
                 r.json().then(newEventData => {
+                    setIsLoading(false);
                     setUser({...user, events: [...user.events, newEventData]});
-                    //history.push("/")
+                    history.push("/events");
             });
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
         });
-        // autofill with venue id and get the user id from the session
         onCloseNewEventForm();
     }
 

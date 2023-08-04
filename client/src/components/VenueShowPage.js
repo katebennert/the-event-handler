@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import NewEvent from "./NewEvent";
+import { UserContext } from "../context/user";
 
-function MyEventsPage({ venue }) {
+function VenueShowPage({ venue }) {
+
+    const { user } = useContext(UserContext);
 
     const venueId = useParams();
     const [currentVenue, setCurrentVenue] = useState({});
@@ -42,11 +45,12 @@ function MyEventsPage({ venue }) {
             :
             <div>
                 Venue Show Page: {currentVenue.name}
-                <button onClick={e => setShowNewEventForm(true)}>Add an Event at This Venue</button>
+                {user.role === "Planner" ? <button onClick={e => setShowNewEventForm(true)}>Add an Event at This Venue</button> : <></> }
 
                 {showNewEventForm && (
                     <div className="modal">
                         <div className="modal-content">
+                            <button className="close-button" onClick={handleCloseNewEventForm}>X</button>
                             <NewEvent onCloseNewEventForm={handleCloseNewEventForm} currentVenue={currentVenue} />
                         </div>
                     </div>
@@ -57,4 +61,4 @@ function MyEventsPage({ venue }) {
     )
 }
 
-export default MyEventsPage;
+export default VenueShowPage;

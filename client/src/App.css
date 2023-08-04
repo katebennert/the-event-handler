@@ -252,10 +252,27 @@ input::file-selector-button:hover {
 
 .modal-content {
   width: 40vw;
+  position: relative;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  color: darkgreen;
+}
+
+.close-button:hover {
+  color: rgba(0, 100, 0, 0.361);
 }
 
 .event-form-container {
