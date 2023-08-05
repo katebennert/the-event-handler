@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
 
-function EditEvent({ onCloseNewEventForm, event }) {
+function EditEvent({ onCloseEditEventForm, event }) {
 
     const { user, setUser } = useContext(UserContext);
 
@@ -29,25 +29,25 @@ function EditEvent({ onCloseNewEventForm, event }) {
     function handleEditEventSubmit(e) {
         e.preventDefault();
         console.log(currentEvent)
-        // setIsLoading(true);
+        setIsLoading(true);
 
-        // fetch("/events", {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(currentEvent),
-        // }).then((r) => {
-        //     if (r.ok) {
-        //         r.json().then(currentEventData => {
-        //             setIsLoading(false);
-        //             setUser({...user, events: [...user.events, currentEventData]});
-        //             onCloseEditEventForm();
-        //     });
-        //     } else {
-        //         r.json().then((err) => setErrors(err.errors));
-        //     }
-        // });
+        fetch(`/events/${event.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(currentEvent),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then(currentEventData => {
+                    setIsLoading(false);
+                    setUser({...user, events: [...user.events, currentEventData]});
+                    onCloseEditEventForm();
+            });
+            } else {
+                r.json().then((err) => setErrors(err.errors));
+            }
+       });
     }
 
     function handleChange(e) {
