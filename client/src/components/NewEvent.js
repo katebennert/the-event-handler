@@ -34,13 +34,14 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                 r.json().then(newEventData => {
                     setIsLoading(false);
                     setUser({...user, events: [...user.events, newEventData]});
+                    onCloseNewEventForm();
                     history.push("/events");
             });
             } else {
                 r.json().then((err) => setErrors(err.errors));
+                
             }
         });
-        onCloseNewEventForm();
     }
 
     function handleChange(e) {
@@ -127,8 +128,14 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="button-container">
                     <button className="save-button" type="submit">Save Event</button>
+                </div>
+
+                <div className="errors-container">
+                    {errors.map((err) => (
+                        <p key={err}>{err}</p>
+                    ))}
                 </div>
 
             </form>

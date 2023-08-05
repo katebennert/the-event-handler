@@ -2,10 +2,16 @@ class EventsController < ApplicationController
 
     def create
         client = Client.find_by(email: params[:client_email])
-        event = client.events.new(event_params)
-        current_user.events << event
-        event.save!
-        render json: event, status: :created
+        if client
+            event = client.events.new(event_params)
+            current_user.events << event
+            event.save!
+            puts "Params date: #{params[:date]}"
+            puts "Event attributes: #{event.attributes}"
+            render json: event, status: :created
+        else
+            render json: { errors: ["Invalid client email"] }, status: :unprocessable_entity 
+        end
     end
 
     def update

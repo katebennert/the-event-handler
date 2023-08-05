@@ -160,9 +160,15 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="button-container">
                     <button className="save-button" type="submit">Save Event</button>
                     <button className="delete-button" type="button" onClick={handleEventDelete} >Delete This Event</button>
+                </div>
+
+                <div className="errors-container">
+                    {errors.map((err) => (
+                        <p key={err}>{err}</p>
+                    ))}
                 </div>
 
             </form>
