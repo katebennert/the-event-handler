@@ -228,16 +228,7 @@ input::file-selector-button:hover {
   border:solid;
 }
 
-/*NEW EVENT FORM*/
-
-/* .new-event-form-container {
-  border-radius: 5px;
-  border: none;
-  background-color: darkgreen;
-  width: 70vw;
-  margin: 0 auto;
-  margin-top: 10px;
-} */
+/*NEW EVENT FORM + EDIT EVENT FORM*/
 
 .modal {
   position: fixed;
@@ -313,9 +304,14 @@ input::file-selector-button:hover {
   border-radius: 4px;
 }
 
+.form-group:last-child {
+  display: flex; /* Change display to flex */
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: space-between;
+}
+
 .event-form button {
   padding: 10px 20px;
-  background-color: darkgreen;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -323,8 +319,20 @@ input::file-selector-button:hover {
   font-size: 16px;
 }
 
-.event-form button:hover {
+.save-button {
+  background-color: darkgreen;
+}
+
+.delete-button {
+  background-color: goldenrod;
+}
+
+.save-button:hover {
   background-color: rgb(0, 164, 0);
+}
+
+.delete-button:hover {
+  background-color: gold;
 }
 
 

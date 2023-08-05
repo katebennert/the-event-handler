@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
+import { useHistory } from "react-router";
 
 function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
 
     const { user, setUser } = useContext(UserContext);
+    const history = useHistory();
 
     const [currentEvent, setCurrentEvent] = useState({
         name: event.name,
@@ -65,8 +67,13 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
     }
 
     function handleEventDelete() {
-        console.log("delete")
+        const filteredEvents = user.events.filter(ev => ev.id !== event.id);
+        fetch(`/events/${event.id}`, {
+          method: "DELETE",
+        })
+        .then(setUser({...user, events: filteredEvents}))
         onCloseEditEventForm();
+        history.push("/events");
     }
 
     function handleSetUser(currentEventObj) {
@@ -154,14 +161,11 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                 </div>
 
                 <div className="form-group">
-                    <button type="submit">Save Event</button>
+                    <button className="save-button" type="submit">Save Event</button>
+                    <button className="delete-button" type="button" onClick={handleEventDelete} >Delete This Event</button>
                 </div>
 
             </form>
-
-            <div className="form-group">
-                    <button onClick={handleEventDelete} >Delete This Event</button>
-                </div>
        </div>
     )
 }

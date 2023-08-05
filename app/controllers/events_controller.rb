@@ -14,6 +14,16 @@ class EventsController < ApplicationController
         render json: event, status: :accepted
     end
 
+    def destroy
+        event = current_user.events.find_by(id: params[:id])
+        if event
+            event.destroy
+            head :no_content
+        else 
+            head :no_content, status: :unauthorized
+        end
+    end
+
     private
 
     def event_params

@@ -128,7 +128,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                 </div>
 
                 <div className="form-group">
-                    <button type="submit">Save Event</button>
+                    <button className="save-button" type="submit">Save Event</button>
                 </div>
 
             </form>
