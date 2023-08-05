@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import { UserContext } from "../context/user";
+import EditEvent from "./EditEvent";
 
 function EventShowPage() {
 
@@ -8,6 +9,7 @@ function EventShowPage() {
     const [event, setEvent] = useState({});
     const eventId = useParams();
     const [notFound, setNotFound] = useState(false);
+    const [showEditEventForm, setShowEditEventForm] = useState(false);
 
     const notFoundMessage = "Oops! Event not found."
 
@@ -20,6 +22,12 @@ function EventShowPage() {
         }
     }, [setEvent, setNotFound]);
 
+    function handleCloseEditEventForm() {
+        setShowEditEventForm(false);
+        console.log(event)
+        console.log(user)
+    }
+
     return (
         <div> 
             {notFound ? 
@@ -29,7 +37,18 @@ function EventShowPage() {
             :
             <div>
                 Event Show Page: {event.name}
-                {user.role === "Planner" ? <button onClick={e => console.log(e)}>Edit This Event</button> : <></>}
+                {user.role === "Planner" ? 
+                    <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
+                : <></>}
+
+                {showEditEventForm && (
+                    <div className="modal">
+                        <div className="modal-content">
+                            <button className="close-button" onClick={handleCloseEditEventForm}>X</button>
+                            <EditEvent onCloseEditEventForm={handleCloseEditEventForm} event={event} />
+                        </div>
+                    </div>
+                )}
                 
             </div>
         }

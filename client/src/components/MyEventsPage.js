@@ -8,6 +8,8 @@ function MyEventsPage() {
     const placeholderText = "Find an event from your list...";
     const searchCategory = "my events";
 
+    console.log(user.events)
+
     function handleMyEventSearchSubmit(searchQuery) {
         console.log(searchQuery)
     }
