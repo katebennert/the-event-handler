@@ -80,12 +80,22 @@ function EditEvent({ onCloseNewEventForm, event }) {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="clientEmail">Client Email:</label>
+                    <label htmlFor="venueName">Venue:</label>
                     <input 
-                        type="email" 
-                        id="client_email" 
-                        value={event.client_id} 
-                        required 
+                        type="text" 
+                        id="venue_name" 
+                        value={event.venue_name} 
+                        disabled 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="clientName">Client:</label>
+                    <input 
+                        type="text" 
+                        id="client_name" 
+                        value={event.client_name} 
+                        disabled 
                     />
                 </div>
 

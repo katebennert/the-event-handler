@@ -24,8 +24,6 @@ function EventShowPage() {
 
     function handleCloseEditEventForm() {
         setShowEditEventForm(false);
-        console.log(event)
-        console.log(user)
     }
 
     return (
