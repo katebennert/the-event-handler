@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
 
-function EditEvent({ onCloseEditEventForm, event }) {
+function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
 
     const { user, setUser } = useContext(UserContext);
 
@@ -28,7 +28,6 @@ function EditEvent({ onCloseEditEventForm, event }) {
     
     function handleEditEventSubmit(e) {
         e.preventDefault();
-        console.log(currentEvent)
         setIsLoading(true);
 
         fetch(`/events/${event.id}`, {
@@ -41,7 +40,8 @@ function EditEvent({ onCloseEditEventForm, event }) {
             if (r.ok) {
                 r.json().then(currentEventData => {
                     setIsLoading(false);
-                    setUser({...user, events: [...user.events, currentEventData]});
+                    handleSetUser(currentEventData);
+                    onUpdateEvent(currentEventData);
                     onCloseEditEventForm();
             });
             } else {
@@ -62,6 +62,16 @@ function EditEvent({ onCloseEditEventForm, event }) {
             ...currentEvent,
             [id]: value
         });
+    }
+
+    function handleEventDelete() {
+        console.log("delete")
+        onCloseEditEventForm();
+    }
+
+    function handleSetUser(currentEventObj) {
+        const newEventsArray = user.events.map((ev) => ev === event ? currentEventObj : ev);
+        setUser({...user, events: newEventsArray});
     }
 
     return (
@@ -148,6 +158,10 @@ function EditEvent({ onCloseEditEventForm, event }) {
                 </div>
 
             </form>
+
+            <div className="form-group">
+                    <button onClick={handleEventDelete} >Delete This Event</button>
+                </div>
        </div>
     )
 }

@@ -26,6 +26,10 @@ function EventShowPage() {
         setShowEditEventForm(false);
     }
 
+    function handleUpdateEvent(updatedEvent) {
+        setEvent(updatedEvent)
+    }
+
     return (
         <div> 
             {notFound ? 
@@ -43,7 +47,7 @@ function EventShowPage() {
                     <div className="modal">
                         <div className="modal-content">
                             <button className="close-button" onClick={handleCloseEditEventForm}>X</button>
-                            <EditEvent onCloseEditEventForm={handleCloseEditEventForm} event={event} />
+                            <EditEvent onCloseEditEventForm={handleCloseEditEventForm} event={event} onUpdateEvent={handleUpdateEvent} />
                         </div>
                     </div>
                 )}
