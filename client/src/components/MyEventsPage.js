@@ -22,7 +22,7 @@ function MyEventsPage() {
                         <p>{event.event_type}</p>
                         <p>{new Date(event.date).toLocaleDateString("en-US")}</p>
                         <p>{new Date(event.date).toLocaleTimeString("en-US")}</p>
-                        <NavLink to={`/events/${event.id}`}><button onClick={e => console.log(e)} >Event Details</button></NavLink>
+                        <NavLink to={`/events/${event.id}`}><button>Event Details</button></NavLink>
                     </div>
                 )
             )}

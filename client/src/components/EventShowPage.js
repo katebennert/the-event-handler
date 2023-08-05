@@ -29,7 +29,7 @@ function EventShowPage() {
             :
             <div>
                 Event Show Page: {event.name}
-                {/* {user.role === "Planner" ? <button onClick={e => setShowNewEventForm(true)}>Add an Event at This Venue</button> : <></> } */}
+                {user.role === "Planner" ? <button onClick={e => console.log(e)}>Edit This Event</button> : <></>}
                 
             </div>
         }
