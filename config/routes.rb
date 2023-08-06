@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :events
   resources :venues
    # login/logout/sign up
