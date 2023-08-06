@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :budget, :date, :event_type, :guest_num, :name, :client_name, :client_email, :venue_name, :comments
+  attributes :id, :budget, :date, :event_type, :guest_num, :name, :client_name, :client_email, :venue_name, :decorated_comments
 
   def client_name
     object.client.name if object.client
@@ -13,8 +13,16 @@ class EventSerializer < ActiveModel::Serializer
     object.venue.name if object.venue
   end
 
-  def comments
-    object.comments if object.comments
+  def decorated_comments
+    object.comments.map do |comment|
+      {
+        id: comment.id,
+        body: comment.body,
+        created_at: comment.created_at,
+        updated_at: comment.updated_at,
+        user_role: comment.user.role
+      }
+    end
   end
 
   belongs_to :client

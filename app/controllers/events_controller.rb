@@ -16,8 +16,12 @@ class EventsController < ApplicationController
 
     def update
         event = Event.find_by(id: params[:id])
-        event.update!(event_params)
-        render json: event, status: :accepted
+        if event.planner_id == current_user.id
+            event.update!(event_params)
+            render json: event, status: :accepted
+        else
+            render json: { errors: ["Not Authorized to update event"] }, status: :unauthorized 
+        end
     end
 
     def destroy

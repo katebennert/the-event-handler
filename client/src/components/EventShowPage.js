@@ -10,6 +10,7 @@ function EventShowPage() {
     const eventId = useParams();
     const [notFound, setNotFound] = useState(false);
     const [showEditEventForm, setShowEditEventForm] = useState(false);
+    const [comments, setComments] = useState([]);
 
     const notFoundMessage = "Oops! Event not found."
 
@@ -19,6 +20,7 @@ function EventShowPage() {
             setNotFound(true);
         } else {
             setEvent(currentEvent)
+            setComments(currentEvent.decorated_comments)
         }
     }, [setEvent, setNotFound]);
 
@@ -31,17 +33,37 @@ function EventShowPage() {
     }
 
     return (
-        <div> 
+        <div className="not-found"> 
             {notFound ? 
-            <div>
-                {notFoundMessage}
+        <div>
+            {notFoundMessage}
+        </div>
+        :
+        <div className="event-show-page">
+            Event Show Page: {event.name}
+            {user.role === "Planner" ? 
+                <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
+            : <></>}
+
+            <div className="messages-section">
+                {/**Client Messages */}
+                <div className="message-container">
+                    {comments.filter((c) => c.user_role === "Client").map((c) => (
+                        <div key={c.id} className="message">
+                            <div className="message-content">{c.body}</div>
+                        </div>
+                    ))}
+                </div>
+
+                {/**Planner Messages */}
+                <div className="message-container">
+                    {comments.filter((c) => c.user_role === "Planner").map((c) => (
+                        <div key={c.id} className="message">
+                            <div className="message-content">{c.body}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            :
-            <div>
-                Event Show Page: {event.name}
-                {user.role === "Planner" ? 
-                    <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
-                : <></>}
 
                 {showEditEventForm && (
                     <div className="modal">
