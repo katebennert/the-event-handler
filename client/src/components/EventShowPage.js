@@ -48,21 +48,21 @@ function EventShowPage() {
             <div className="messages-section">
                 {/**Client Messages */}
                 <div className="message-container">
-                    {comments.filter((c) => c.user_role === "Client").map((c) => (
-                        <div key={c.id} className="message">
+                    {comments.map((c) => (
+                        <div key={c.id} className={c.user_role === "Client" ? "client-message" : "planner-message"}>
                             <div className="message-content">{c.body}</div>
                         </div>
                     ))}
                 </div>
 
                 {/**Planner Messages */}
-                <div className="message-container">
+                {/* <div className="message-container">
                     {comments.filter((c) => c.user_role === "Planner").map((c) => (
                         <div key={c.id} className="message">
                             <div className="message-content">{c.body}</div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
 
                 {showEditEventForm && (

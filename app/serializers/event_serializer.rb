@@ -20,7 +20,8 @@ class EventSerializer < ActiveModel::Serializer
         body: comment.body,
         created_at: comment.created_at,
         updated_at: comment.updated_at,
-        user_role: comment.user.role
+        user_role: comment.user.role,
+        user_name: comment.user.name
       }
     end
   end

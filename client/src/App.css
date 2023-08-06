@@ -388,12 +388,16 @@ input::file-selector-button:hover {
   /* Other styles for the message container */
 }
 
-.message {
+.client-message, .planner-message {
   margin: 8px;
   padding: 12px;
-  background-color: #f0f0f0;
+  background-color: green;
   border-radius: 8px;
   /* Other styles for the message container */
+}
+
+.client-message {
+  background-color: yellow;
 }
 
 .message-content {
