@@ -9,10 +9,10 @@ function UserProfile() {
 
   const [updatedUser, setUpdatedUser] = useState({
     name: user.name,
-    // pronouns: user.pronouns,
+    pronouns: user.pronouns,
     email: user.email,
-    bio: user.bio
-    //location: user.location
+    bio: user.bio,
+    location: user.location
   });
  
   const [loading, setLoading] = useState(false);
@@ -96,6 +96,7 @@ function UserProfile() {
             <div className="profile-text-container">
             
               <div className="name-pronouns-header">
+                <div>
                 <input
                     type="text"
                     name="name"
@@ -103,7 +104,16 @@ function UserProfile() {
                     value={updatedUser.name ? updatedUser.name : "+ Add your name"}
                     onChange={handleChange}
                   />
-                <p>she/her/hers</p>
+                </div>
+                <div>
+                <input
+                    type="text"
+                    name="pronouns"
+                    autoComplete="off"
+                    value={updatedUser.pronouns ? updatedUser.pronouns: "+ Add your pronouns"}
+                    onChange={handleChange}
+                  />
+                  </div>
               </div>
 
               <div className="info-container">
@@ -111,7 +121,15 @@ function UserProfile() {
                 <div className="contact-card">
                   <h3>Contact Details:</h3>
                   <p>{updatedUser.email}</p>
-                  <p>Location</p>
+                  <div>
+                <input
+                    type="text"
+                    name="location"
+                    autoComplete="off"
+                    value={updatedUser.location ? updatedUser.location : "+ Add your location"}
+                    onChange={handleChange}
+                  />
+                  </div>
                 </div>
 
                 <div className="bio-container">
@@ -147,7 +165,7 @@ function UserProfile() {
             
             <div className="name-pronouns-header">
               <h1>{updatedUser.name ? updatedUser.name : "+ Add your name"}</h1>
-              <p>she/her/hers</p>
+              <p>{updatedUser.pronouns}</p>
             </div>
 
             <div className="info-container">
@@ -155,7 +173,7 @@ function UserProfile() {
               <div className="contact-card">
                 <h3>Contact Details:</h3>
                 <p>{updatedUser.email}</p>
-                <p>Location</p>
+                <p>{updatedUser.location}</p>
               </div>
 
               <div className="bio-container">
