@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from "../context/user";
 import EditEvent from "./EditEvent";
 
-function EventShowPage() {
+function EventShowPage({ formatDate, formatTime }) {
 
     const { user } = useContext(UserContext);
     const [event, setEvent] = useState({});
@@ -40,13 +40,20 @@ function EventShowPage() {
         </div>
         :
         <div className="event-show-page">
-            Event Show Page: {event.name}
+            <div>{event.name}</div>
+            <div>{event.event_type}</div>
+            <div>{event.client_name}</div>
+            <div>{event.client_email}</div>
+            <div>{event.budget}</div>
+            <div>{event.venue_name}</div>
+            <div>{event.guest_num}</div>
+            <div>{formatDate(event.date)}</div>
+            <div>{formatTime(event.date)}</div>
             {user.role === "Planner" ? 
                 <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
             : <></>}
 
             <div className="messages-section">
-                {/**Client Messages */}
                 <div className="message-container">
                     {comments.map((c) => (
                         <div key={c.id} className={c.user_role === "Client" ? "client-message" : "planner-message"}>
@@ -54,15 +61,6 @@ function EventShowPage() {
                         </div>
                     ))}
                 </div>
-
-                {/**Planner Messages */}
-                {/* <div className="message-container">
-                    {comments.filter((c) => c.user_role === "Planner").map((c) => (
-                        <div key={c.id} className="message">
-                            <div className="message-content">{c.body}</div>
-                        </div>
-                    ))}
-                </div> */}
             </div>
 
                 {showEditEventForm && (
