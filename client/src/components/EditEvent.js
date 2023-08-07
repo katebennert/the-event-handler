@@ -47,6 +47,7 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                     onCloseEditEventForm();
             });
             } else {
+                console.log(errors)
                 r.json().then((err) => setErrors(err.errors));
             }
        });

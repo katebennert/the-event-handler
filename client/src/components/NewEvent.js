@@ -35,7 +35,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                     setIsLoading(false);
                     setUser({...user, events: [...user.events, newEventData]});
                     onCloseNewEventForm();
-                    history.push("/events");
+                    history.push(`/events/${newEventData.id}`);
             });
             } else {
                 r.json().then((err) => setErrors(err.errors));

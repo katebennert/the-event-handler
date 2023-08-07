@@ -1,5 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :body, :create_at, :updated_at
+  attributes :id, :body, :updated_at, :created_at
   
   belongs_to :user
   belongs_to :event
