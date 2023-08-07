@@ -6,8 +6,6 @@ class EventsController < ApplicationController
             event = client.events.new(event_params)
             current_user.events << event
             event.save!
-            puts "Params date: #{params[:date]}"
-            puts "Event attributes: #{event.attributes}"
             render json: event, status: :created
         else
             render json: { errors: ["Invalid client email"] }, status: :unprocessable_entity 

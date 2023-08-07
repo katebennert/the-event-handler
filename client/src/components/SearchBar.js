@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SearchBar({ placeholderText, searchCategory, onMyEventSearchSubmit, onMyClientSearchSubmit, onMyVenueSearchSubmit, onAllEventSearchSubmit }) {
+function SearchBar({ placeholderText, searchCategory, onMyEventsSearchSubmit, onMyClientsSearchSubmit, onMyVenuesSearchSubmit, onAllVenuesSearchSubmit }) {
 
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -9,16 +9,16 @@ function SearchBar({ placeholderText, searchCategory, onMyEventSearchSubmit, onM
 
         switch (searchCategory) {
             case "my events":
-                onMyEventSearchSubmit(searchQuery);
+                onMyEventsSearchSubmit(searchQuery);
                 break;
             case "my clients":
-                onMyClientSearchSubmit(searchQuery);
+                onMyClientsSearchSubmit(searchQuery);
                 break;
             case "my venues":
-                onMyVenueSearchSubmit(searchQuery);
+                onMyVenuesSearchSubmit(searchQuery);
                 break;
             default:
-                onAllEventSearchSubmit(searchQuery);
+                onAllVenuesSearchSubmit(searchQuery);
         }
     }
 

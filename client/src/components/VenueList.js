@@ -22,13 +22,13 @@ function VenueList({ handleVenueSet }) {
                 r.json().then((err) => console.log(err.errors));
             }
         });
-    }, [setVenues]);
+    }, [setVenues, setVenuesToDisplay]);
 
     function handleVenueClick(id) {
         handleVenueSet(venues.find(v => v.id === parseInt(id)))
     }
 
-    function handleAllVenueSearchSubmit(searchQuery) {
+    function handleAllVenuesSearchSubmit(searchQuery) {
         const filteredVenues = venues.filter(v => v.name.toLowerCase().includes(searchQuery.toLowerCase()));
         filteredVenues.length === 0 ? setNoResults(true) : setNoResults(false);
         setVenuesToDisplay(filteredVenues);
@@ -36,7 +36,7 @@ function VenueList({ handleVenueSet }) {
 
     return (
         <div> 
-            <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onAllEventSearchSubmit={handleAllVenueSearchSubmit} />
+            <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onAllVenuesSearchSubmit={handleAllVenuesSearchSubmit} />
            {noResults ? "There are no venues that match this search." 
            :
             venuesToDisplay.map((ven) => (

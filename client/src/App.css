@@ -380,6 +380,7 @@ input::file-selector-button:hover {
 .messages-section {
   display: flex;
   justify-content: space-between;
+  width: 50vw;
   /* Other styles for the messages section container */
 }
 
@@ -397,7 +398,7 @@ input::file-selector-button:hover {
 }
 
 .client-message {
-  background-color: yellow;
+  background-color: gold;
 }
 
 .message-content {
