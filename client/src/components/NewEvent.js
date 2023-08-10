@@ -18,6 +18,21 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
     });
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    function handleSetUser(newEvent) {
+        let uniqueClientsArray = user.unique_clients;
+        let uniqueVenuesArray = user.unique_venues;
+
+        if (!(user.unique_clients.map(c => c.email).includes(newEvent.client.email))) {
+            uniqueClientsArray = [...user.unique_clients, newEvent.client]
+        }
+
+        if (!(user.unique_venues.map(v => v.id).includes(newEvent.venue.id))) {
+            uniqueVenuesArray = [...user.unique_venues, newEvent.venue]
+        }
+        
+        setUser({...user, events: [...user.events, newEvent], unique_clients: uniqueClientsArray, unique_venues: uniqueVenuesArray});
+    }
     
     function handleNewEventSubmit(e) {
         e.preventDefault();
@@ -33,7 +48,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
             if (r.ok) {
                 r.json().then(newEventData => {
                     setIsLoading(false);
-                    setUser({...user, events: [...user.events, newEventData]});
+                    handleSetUser(newEventData);
                     onCloseNewEventForm();
                     history.push(`/events/${newEventData.id}`);
             });

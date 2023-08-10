@@ -401,7 +401,7 @@ input::file-selector-button:hover {
   background-color: gold;
 }
 
-.message-content {
-  /* Styles for the message content (message text) */
-  /* You can customize the font, color, etc. here */
-}
+/* .message-content {
+  Styles for the message content (message text) 
+  You can customize the font, color, etc. here 
+} */
