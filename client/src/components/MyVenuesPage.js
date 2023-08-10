@@ -12,7 +12,7 @@ function MyVenuesPage() {
 
     useEffect(() => {
         setVenuesToDisplay(user.unique_venues)
-    }, [setVenuesToDisplay]);
+    }, [setVenuesToDisplay, user.unique_venues]);
 
     function handleMyVenuesSearchSubmit(searchQuery) {
         const filteredVenues = user.unique_venues.filter(v => v.name.toLowerCase().includes(searchQuery.toLowerCase()));

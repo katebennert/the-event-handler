@@ -22,7 +22,7 @@ function EventShowPage({ formatDate, formatTime }) {
             setEvent(currentEvent)
             setComments(currentEvent.decorated_comments)
         }
-    }, [setEvent, setNotFound]);
+    }, [setEvent, setNotFound, eventId.eventId, user.events]);
 
     function handleCloseEditEventForm() {
         setShowEditEventForm(false);

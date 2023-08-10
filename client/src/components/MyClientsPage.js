@@ -12,7 +12,7 @@ function MyClientsPage() {
 
     useEffect(() => {
         setClientsToDisplay(user.unique_clients)
-    }, [setClientsToDisplay]);
+    }, [setClientsToDisplay, user.unique_clients]);
 
     function handleMyClientsSearchSubmit(searchQuery) {
         const filteredClients = user.unique_clients.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));

@@ -12,7 +12,7 @@ function MyEventsPage({ formatDate, formatTime }) {
 
     useEffect(() => {
         setEventsToDisplay(user.events)
-    }, [setEventsToDisplay]);
+    }, [setEventsToDisplay, user.events]);
 
     function handleMyEventsSearchSubmit(searchQuery) {
         const filteredEvents = user.events.filter(e => e.name.toLowerCase().includes(searchQuery.toLowerCase()));

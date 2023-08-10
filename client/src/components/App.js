@@ -39,7 +39,6 @@ function App() {
     }
       
     function formatTime(utcDateStr) {
-        const timeOptions = { hour: "numeric", minute: "numeric", hour12: true };
         const localDate = new Date(utcDateStr);
 
         // Get the time from the local date without adjusting for timezone
