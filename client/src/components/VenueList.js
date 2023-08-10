@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function VenueList({ handleVenueSet }) {
+function VenueList({ handleVenueSet, formatMoney }) {
 
     const [venues, setVenues] = useState([]);
     const [venuesToDisplay, setVenuesToDisplay] = useState([]);
@@ -35,25 +35,29 @@ function VenueList({ handleVenueSet }) {
     }
 
     return (
-        <div> 
+        <div className="venues-page"> 
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onAllVenuesSearchSubmit={handleAllVenuesSearchSubmit} />
-           {noResults ? "There are no venues that match this search." 
-           :
-            venuesToDisplay.map((ven) => (
-                    <div key={ven.id}>
-                        <p>{ven.name}</p>
-                        <p>{ven.seated_guest_capacity}</p>
-                        <p>{ven.venue_type}</p>
-                        <p>{ven.venue_setting}</p>
-                        <p>{ven.avg_cost}</p>
-                        <p>{ven.address}</p>
-                        <p>{ven.about}</p>
-                        <NavLink to={`/venues/${ven.id}`}><button onClick={e => handleVenueClick(ven.id)} ></button></NavLink>
+
+            {noResults ? "There are no venues that match this search." 
+            :
+
+            <div className="venue-grid">
+                {venuesToDisplay.map((ven) => (
+                    <div key={ven.id} className="venue-card">
+                        <Link to={`/venues/${ven.id}`} className="venue-show-link" >
+                            <span className="preserve-styles" onClick={e => handleVenueClick(ven.id)}>
+                                <img src={ven.image} alt={ven.name} />
+                                <h1>{ven.name}</h1>
+                                <p>Venue Type: {ven.venue_type}</p>
+                                <p>Venue Setting: {ven.venue_setting}</p>
+                                <p>Starts at: {formatMoney(ven.avg_cost)}</p>
+                            </span>
+                        </Link>
                     </div>
-                )
-            )
+                ))}
+            </div>
             }
-        </div>
+        </div>   
     )
 }
 

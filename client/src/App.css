@@ -405,3 +405,55 @@ input::file-selector-button:hover {
   Styles for the message content (message text) 
   You can customize the font, color, etc. here 
 } */
+
+/* VENUES LIST */
+
+.venue-grid {
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.venue-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.venue-card p {
+  margin: 8px 0;
+}
+
+.venue-card span :last-child {
+  color: gray;
+  font-size: 0.7em;
+}
+
+.venue-card h1 {
+  font-size: 1.3em;
+}
+
+.venue-card img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.venue-show-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.venue-card span:hover h1 {
+  text-decoration: underline;
+}
+
+.venue-card span:hover img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.258);
+}

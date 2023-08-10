@@ -4,7 +4,7 @@ puts 'Seeding 🌱'
     user1 = User.create!(
         role: "Client",
         name: "Jane Smith",
-        email: "john@example.com",
+        email: "jane@example.com",
         password: "devpassword",
         pronouns: "she/her",
         location: "New York"
@@ -13,7 +13,7 @@ puts 'Seeding 🌱'
     user2 = User.create!(
         role: "Planner",
         name: "Ryan Andrew",
-        email: "jane@example.com",
+        email: "ryan@example.com",
         password: "devpassword",
         pronouns: "he/him",
         location: "San Francisco"
@@ -27,7 +27,8 @@ puts 'Seeding 🌱'
         venue_setting: "Formal",
         avg_cost: 5000,
         address: "123 Main St, New York",
-        about: "A beautiful ballroom for weddings and events."
+        about: "A beautiful ballroom for weddings and events.",
+        image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1798&q=80"
     )
     
     venue2 = Venue.create!(
@@ -37,7 +38,41 @@ puts 'Seeding 🌱'
         venue_setting: "Rustic",
         avg_cost: 3000,
         address: "456 Oak Ave, San Francisco",
-        about: "A charming barn venue for rustic weddings."
+        about: "A charming barn venue for rustic weddings.",
+        image: "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80"
+    )
+
+    venue3 = Venue.create!(
+        name: "Lakeside Bliss",
+        seated_guest_capacity: 100,
+        venue_type: "Outdoor Wedding",
+        venue_setting: "Lakeside Outside",
+        avg_cost: 5000,
+        address: "456 Lake Dr, Lake Placid",
+        about: "A breathtaking lake view for outside weddings.",
+        image: "https://images.unsplash.com/photo-1505944357431-27579db47558?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80"
+    )
+
+    venue3 = Venue.create!(
+        name: "Egret's Nest at Bayou Barn",
+        seated_guest_capacity: 200,
+        venue_type: "Outdoor",
+        venue_setting: "Bayou Lake Side",
+        avg_cost: 3000,
+        address: "456 Bayou Lm, Lafayette",
+        about: "A great covered outdoor venue with a stunning Louisianna backdrop.",
+        image: "https://images.unsplash.com/photo-1571268373914-e888c6dafeff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+    )
+
+    venue4 = Venue.create!(
+        name: "Egret's Nest at Bayou Barn 2",
+        seated_guest_capacity: 200,
+        venue_type: "Outdoor",
+        venue_setting: "Bayou Lake Side",
+        avg_cost: 3000,
+        address: "456 Bayou Lm, Lafayette",
+        about: "A great covered outdoor venue with a stunning Louisianna backdrop.",
+        image: "https://images.unsplash.com/photo-1571268373914-e888c6dafeff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
     )
     
     # Seed events

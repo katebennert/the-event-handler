@@ -52,6 +52,15 @@ function App() {
         return `${Number(formattedHours)}:${minutes} ${amPm}`;
     }
 
+    function formatMoney(plainNumber) {
+        return plainNumber.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        });
+    }
+
     if (!user) return <LoginPage />;
 
     return (
@@ -66,7 +75,7 @@ function App() {
                         <UserProfile />
                     </Route>
                     <Route exact path="/venues">
-                        <VenueList handleVenueSet={handleVenueSet} />
+                        <VenueList handleVenueSet={handleVenueSet} formatMoney={formatMoney} />
                     </Route>
                     <Route exact path="/events">
                         <MyEventsPage formatDate={formatDate} formatTime={formatTime} />
