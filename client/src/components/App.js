@@ -90,7 +90,7 @@ function App() {
                         <MyClientsPage />
                     </Route>
                     <Route path="/my-venues">
-                        <MyVenuesPage />
+                        <MyVenuesPage handleVenueSet={handleVenueSet} />
                     </Route>
                     <Route exact path="/">
                         <Home />

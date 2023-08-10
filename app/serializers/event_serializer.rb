@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :budget, :date, :event_type, :guest_num, :name, :client_name, :client_email, :venue_name, :decorated_comments
+  attributes :id, :budget, :date, :event_type, :guest_num, :name, :client_name, :client_email, :venue_name, :decorated_comments, :venue_id
 
   def client_name
     object.client.name if object.client
@@ -11,6 +11,10 @@ class EventSerializer < ActiveModel::Serializer
 
   def venue_name
     object.venue.name if object.venue
+  end
+
+  def venue_id
+    object.venue.id if object.venue
   end
 
   def decorated_comments

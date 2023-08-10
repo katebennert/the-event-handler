@@ -428,8 +428,11 @@ input::file-selector-button:hover {
 .venue-card p {
   margin: 8px 0;
 }
+.venue-card ul {
+  font-size: 0.8em;
+}
 
-.venue-card span :last-child {
+.venue-card-cost {
   color: gray;
   font-size: 0.7em;
 }

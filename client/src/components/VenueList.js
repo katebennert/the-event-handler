@@ -45,12 +45,12 @@ function VenueList({ handleVenueSet, formatMoney }) {
                 {venuesToDisplay.map((ven) => (
                     <div key={ven.id} className="venue-card">
                         <Link to={`/venues/${ven.id}`} className="venue-show-link" >
-                            <span className="preserve-styles" onClick={e => handleVenueClick(ven.id)}>
+                            <span className="preserve-styles" onClick={() => handleVenueClick(ven.id)}>
                                 <img src={ven.image} alt={ven.name} />
                                 <h1>{ven.name}</h1>
                                 <p>Venue Type: {ven.venue_type}</p>
                                 <p>Venue Setting: {ven.venue_setting}</p>
-                                <p>Starts at: {formatMoney(ven.avg_cost)}</p>
+                                <p className="venue-card-cost">Starts at: {formatMoney(ven.avg_cost)}</p>
                             </span>
                         </Link>
                     </div>
