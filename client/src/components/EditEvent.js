@@ -87,7 +87,6 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
           method: "DELETE",
         })
         .then(setUser({...user, events: filteredEvents, venues: filteredVenues, unique_venues: uniqueVenues, unique_clients: uniqueClients}))
-        handleSetUserData();
         onCloseEditEventForm();
         history.push("/events");
     }
@@ -95,32 +94,6 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
     function handleSetUserEdit(currentEventObj) {
         const newEventsArray = user.events.map((ev) => ev === event ? currentEventObj : ev);
         setUser({...user, events: newEventsArray});
-    }
-
-    function handleSetUserData() {
-        //const filteredEvents = user.events.filter(ev => ev.id !== event.id);
-        // const clientEmails = user.clients.map(c => c.email);
-        // const venueIds = user.venues.map(v => v.id);
-        // const clientOccurences = clientEmails.filter(email => email === event.client_email).length;
-        // const venueOccurences = venueIds.filter(id => id === event.client_email).length;
-
-        // if (clientEmails.filter(email => email === event.client_email).length <= 1) {
-        //     setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email)});
-        // } else {
-        //     setUser({...user, events: filteredEvents});
-        // }
-
-        // const userSetAction = 
-        //     (clientOccurences <= 1)
-        //         ? (venueOccurences <= 1)
-        //             ? setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email), unique_venues: user.unique_venues.filter(v => v.id !== event.venue_id)})
-        //             : setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email)})
-        //         : (venueOccurences <= 1)
-        //         ? setUser({...user, events: filteredEvents, unique_venues: user.unique_venues.filter(v => v.id !== event.venue_id)})
-        //         : setUser({...user, events: filteredEvents});
-
-
-        // return userSetAction;
     }
 
     return (
