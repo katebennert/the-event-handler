@@ -460,3 +460,91 @@ input::file-selector-button:hover {
 .venue-card span:hover img {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.258);
 }
+
+/*VENUE SHOW*/
+
+.venue-details {
+  margin: 20px;
+}
+
+.venue-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.venue-text {
+  margin-left: 15vw;
+  padding-left: 20px;
+  margin-right: 20vw;
+  border-left: solid;
+  border-width: 1px;
+  border-color: darkgray;
+}
+
+.venue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.venue-name-address {
+  flex: 3;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: darkgray;
+  margin-right: 200px;
+  padding-bottom: 20px;
+  min-width: 300px;
+}
+
+.top-info {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: darkgray;
+  margin-right: 535px;
+  padding-bottom: 20px;
+  min-width: 300px;
+}
+
+.bottom-info {
+  margin-top: 20px;
+}
+
+.venue-name {
+  font-size: 36px;
+  margin: 0;
+}
+
+.venue-address {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.create-event-button {
+  flex: 1;
+  text-align: left;
+  border: solid;
+  min-width: 300px;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: darkgray;
+  padding: 20px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.venue-info p {
+  margin: 5px 0;
+}

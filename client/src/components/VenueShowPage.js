@@ -44,8 +44,37 @@ function VenueShowPage({ venue }) {
             </div>
             :
             <div>
-                Venue Show Page: {currentVenue.name}
-                {user.role === "Planner" ? <button onClick={e => setShowNewEventForm(true)}>Add an Event at This Venue</button> : <></> }
+                <div className="venue-details">
+                    <img src={currentVenue.image} alt={currentVenue.name} className="venue-image" />
+                    <div className="venue-text">
+                    <div className="venue-header">
+                        <div className="venue-name-address">
+                            <h1 className="venue-name">{currentVenue.name}</h1>
+                            <p className="venue-address">{currentVenue.address}</p>
+                        </div>
+                        <div className="create-event-button">
+                            {user.role === "Planner" && (
+                                <div className="button-container">
+                                    <p>Is this the perfect venue for your event?</p>
+                                    <button onClick={e => setShowNewEventForm(true)}>Create an Event at This Venue</button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <div className="venue-info">
+                        <div className="top-info">
+                            <p><strong>Seated Guest Capacity:</strong> {currentVenue.seated_guest_capacity}</p>
+                            <p><strong>Venue Type:</strong> {currentVenue.venue_type}</p>
+                            <p><strong>Venue Setting:</strong> {currentVenue.venue_setting}</p>
+                        </div>
+                        <div className="bottom-info">
+                            <p><strong>Average Cost:</strong> {currentVenue.avg_cost}</p>
+                            <p><strong>About this venue:</strong> {currentVenue.about}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
 
                 {showNewEventForm && (
                     <div className="modal">

@@ -12,11 +12,20 @@ puts 'Seeding 🌱'
     
     user2 = User.create!(
         role: "Planner",
-        name: "Ryan Andrew",
+        name: "Ryan Andrews",
         email: "ryan@example.com",
         password: "devpassword",
         pronouns: "he/him",
         location: "San Francisco"
+    )
+
+    user3 = User.create!(
+        role: "Client",
+        name: "Kate B.",
+        email: "kate@example.com",
+        password: "devpassword",
+        pronouns: "she/her",
+        location: "Jersey City"
     )
     
     # Seed venues
@@ -65,13 +74,13 @@ puts 'Seeding 🌱'
     )
 
     venue4 = Venue.create!(
-        name: "Egret's Nest at Bayou Barn 2",
+        name: "River's Edge at Bayou Barn",
         seated_guest_capacity: 200,
         venue_type: "Outdoor",
         venue_setting: "Bayou Lake Side",
         avg_cost: 3000,
         address: "456 Bayou Lm, Lafayette",
-        about: "A great covered outdoor venue with a stunning Louisianna backdrop.",
+        about: "A great covered open-air venue with a stunning Louisianna backdrop.",
         image: "https://images.unsplash.com/photo-1571268373914-e888c6dafeff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
     )
     
