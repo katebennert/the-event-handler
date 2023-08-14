@@ -25,7 +25,7 @@ function MyVenuesPage({ handleVenueSet }) {
     }
 
     function handleVenueClick(id) {
-        handleVenueSet(user.venues.find(v => v.id === parseInt(id)))
+        handleVenueSet(user.unique_venues.find(v => v.id === parseInt(id)))
     }
 
     return (

@@ -31,7 +31,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
             uniqueVenuesArray = [...user.unique_venues, newEvent.venue]
         }
         
-        setUser({...user, events: [...user.events, newEvent], unique_clients: uniqueClientsArray, unique_venues: uniqueVenuesArray});
+        setUser({...user, events: [...user.events, newEvent], unique_clients: uniqueClientsArray, unique_venues: uniqueVenuesArray, venues: [...user.venues, newEvent.venue], clients: [...user.clients, newEvent.client]});
     }
     
     function handleNewEventSubmit(e) {

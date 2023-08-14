@@ -42,7 +42,7 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
             if (r.ok) {
                 r.json().then(currentEventData => {
                     setIsLoading(false);
-                    handleSetUser(currentEventData);
+                    handleSetUserEdit(currentEventData);
                     onUpdateEvent(currentEventData);
                     onCloseEditEventForm();
             });
@@ -68,18 +68,59 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
     }
 
     function handleEventDelete() {
+
         const filteredEvents = user.events.filter(ev => ev.id !== event.id);
+
+        const indexOfVenue = user.venues.findIndex(v => v.id === event.venue_id);
+        const filteredVenues = [...user.venues.slice(0, indexOfVenue), ...user.venues.slice(indexOfVenue + 1)];
+        const filteredVenueIds = filteredVenues.map(v => v.id)
+        const uniqueVenueIds = [...new Set(filteredVenueIds)]
+        const uniqueVenues = uniqueVenueIds.map(id => user.venues.find(venue => venue.id === id));
+
+        const indexOfClient = user.clients.findIndex(c => c.email === event.client_email);
+        const filteredClients = [...user.clients.slice(0, indexOfClient), ...user.clients.slice(indexOfClient + 1)];
+        const filteredClientEmails = filteredClients.map(c => c.email)
+        const uniqueClientEmails = [...new Set(filteredClientEmails)]
+        const uniqueClients = uniqueClientEmails.map(email => user.clients.find(client => client.email === email));
+
         fetch(`/events/${event.id}`, {
           method: "DELETE",
         })
-        .then(setUser({...user, events: filteredEvents}))
+        .then(setUser({...user, events: filteredEvents, venues: filteredVenues, unique_venues: uniqueVenues, unique_clients: uniqueClients}))
+        handleSetUserData();
         onCloseEditEventForm();
         history.push("/events");
     }
 
-    function handleSetUser(currentEventObj) {
+    function handleSetUserEdit(currentEventObj) {
         const newEventsArray = user.events.map((ev) => ev === event ? currentEventObj : ev);
         setUser({...user, events: newEventsArray});
+    }
+
+    function handleSetUserData() {
+        //const filteredEvents = user.events.filter(ev => ev.id !== event.id);
+        // const clientEmails = user.clients.map(c => c.email);
+        // const venueIds = user.venues.map(v => v.id);
+        // const clientOccurences = clientEmails.filter(email => email === event.client_email).length;
+        // const venueOccurences = venueIds.filter(id => id === event.client_email).length;
+
+        // if (clientEmails.filter(email => email === event.client_email).length <= 1) {
+        //     setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email)});
+        // } else {
+        //     setUser({...user, events: filteredEvents});
+        // }
+
+        // const userSetAction = 
+        //     (clientOccurences <= 1)
+        //         ? (venueOccurences <= 1)
+        //             ? setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email), unique_venues: user.unique_venues.filter(v => v.id !== event.venue_id)})
+        //             : setUser({...user, events: filteredEvents, unique_clients: user.unique_clients.filter(c => c.email !== event.client_email)})
+        //         : (venueOccurences <= 1)
+        //         ? setUser({...user, events: filteredEvents, unique_venues: user.unique_venues.filter(v => v.id !== event.venue_id)})
+        //         : setUser({...user, events: filteredEvents});
+
+
+        // return userSetAction;
     }
 
     return (

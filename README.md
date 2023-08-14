@@ -8,7 +8,7 @@ EventHandler is a web application built using React for the frontend, a Rails AP
 - [Usage](#usage)
 - [Installation](#installation)
 - [Technologies](#technologies)
-- [Future Versions](#future)
+- [Future Versions](#future-versions)
 - [License](#license)
 
 ## Overview
