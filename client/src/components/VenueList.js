@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import '../styles/VenuesList.css';
+import '../styles/SearchBar.css';
 
 function VenueList({ handleVenueSet, formatMoney }) {
 

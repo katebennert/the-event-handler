@@ -10,7 +10,7 @@ function SignUpForm() {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const history = useHistory();
 
   function handleSubmit(e) {
@@ -31,8 +31,10 @@ function SignUpForm() {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((u) => setUser(u));
-        history.push("/");
+        r.json().then((u) => {
+          setUser(u)
+          history.push(`/users/${u.id}`)
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

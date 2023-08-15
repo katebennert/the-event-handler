@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import NewEvent from "./NewEvent";
 import { UserContext } from "../context/user";
+import '../styles/VenueShowPage.css'
 
 function VenueShowPage({ venue }) {
 

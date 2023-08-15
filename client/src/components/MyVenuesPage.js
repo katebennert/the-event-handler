@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import '../styles/SearchBar.css';
 
 function MyVenuesPage({ handleVenueSet }) {
     const { user } = useContext(UserContext);

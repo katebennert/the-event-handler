@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+.profile-container {
+    position: relative;
+    max-width: 70vw;
+    height: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    border-color: darkgray;
+  }
+  
+  .cover-image {
+    width: 100%;
+    height: 200px; /* Set the desired height for the cover image */
+    object-fit: cover;
+    border-bottom: solid 1px;
+    border-color: darkgray;
+  }
+  
+  .avatar {
+    position: absolute;
+    top: 60px; /* Adjust this value to control the vertical overlap */
+    left: 20px; /* Adjust this value to control the horizontal overlap */
+    width: 170px;
+    height: 175px;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .avatar-edit {
+    position: absolute;
+    top: 60px; /* Adjust this value to control the vertical overlap */
+    left: 20px; /* Adjust this value to control the horizontal overlap */
+    width: 170px;
+    height: 175px;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+  }
+  
+  .avatar-form-group {
+    padding-top: 40px;
+    font-size: 0.7em;
+    padding-left: 20px;
+  }
+  
+  input::file-selector-button {
+    font-weight: bold;
+    color: darkgreen;
+    background-color:white;
+    padding: 0.3em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  input::file-selector-button:hover {
+    cursor: pointer;
+    color: pink;
+  }
+  
+  .profile-text-container {
+    padding-top: 20px;
+    margin-left: 0.75vw;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    border:solid;
+  }

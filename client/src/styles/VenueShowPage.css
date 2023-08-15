@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+.venue-details {
+    margin: 20px;
+  }
+  
+  .venue-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .venue-text {
+    margin-left: 15vw;
+    padding-left: 20px;
+    margin-right: 20vw;
+    border-left: solid;
+    border-width: 1px;
+    border-color: darkgray;
+  }
+  
+  .venue-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .venue-name-address {
+    flex: 3;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: darkgray;
+    margin-right: 200px;
+    padding-bottom: 20px;
+    min-width: 300px;
+  }
+  
+  .top-info {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: darkgray;
+    margin-right: 535px;
+    padding-bottom: 20px;
+    min-width: 300px;
+  }
+  
+  .bottom-info {
+    margin-top: 20px;
+  }
+  
+  .venue-name {
+    font-size: 36px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    margin: 0;
+  }
+  
+  .venue-address {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .create-event-button-container {
+    flex: 1;
+    font-weight: bold;
+    text-align: left;
+    border: solid;
+    min-width: 300px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: darkgray;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 300px;
+  }
+  
+  .create-event-button {
+    padding: 15px 30px;
+    background-color: darkgreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  .create-event-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 100, 0, 0.862);
+  }
+  
+  .venue-info p {
+    margin: 5px 0;
+  }

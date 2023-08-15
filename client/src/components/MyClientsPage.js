@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user";
 import SearchBar from "./SearchBar";
+import '../styles/ClientList.css';
+import '../styles/SearchBar.css';
 //import { NavLink } from "react-router-dom";
 
 function MyClientsPage() {

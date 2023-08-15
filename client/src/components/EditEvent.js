@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/user";
 import { useHistory } from "react-router";
+import '../styles/EventForm.css';
 
 function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
 

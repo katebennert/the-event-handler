@@ -1,0 +1,110 @@
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    width: 40vw;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: darkgreen;
+  }
+  
+  .close-button:hover {
+    color: rgba(0, 100, 0, 0.361);
+  }
+  
+  .event-form-container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .event-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-right: 20px;
+  }
+  
+  .event-form form-group {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .event-form label {
+    font-weight: bold;
+  }
+  
+  .event-form input[type="text"],
+  .event-form input[type="email"],
+  .event-form input[type="number"],
+  .event-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    display: flex; /* Change display to flex */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between;
+  }
+  
+  .save-button {
+    padding: 15px 30px;
+    background-color: darkgreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  .delete-button {
+    padding: 15px 30px;
+    background-color: goldenrod;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  .save-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 100, 0, 0.862);
+  }
+  
+  .delete-button:hover {
+    cursor: pointer;
+    background-color: rgba(218, 165, 32, 0.785);
+  }

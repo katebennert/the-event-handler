@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+.client-grid {
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .client-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .client-card-image {
+    padding-right: 20px;
+  }
+  
+  .client-card p {
+    margin: 8px 0;
+  }
+  
+  .client-card ul {
+    font-size: 0.8em;
+  }
+  
+  .client-card h1 {
+    font-size: 1.3em;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+  
+  .client-card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  

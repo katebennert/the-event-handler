@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user";
 import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import '../styles/SearchBar.css';
 
 function MyEventsPage({ formatDate, formatTime }) {
     const { user } = useContext(UserContext);

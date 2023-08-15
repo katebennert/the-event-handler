@@ -1,0 +1,31 @@
+/*MESSAGES*/
+
+.messages-section {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    /* Other styles for the messages section container */
+  }
+  
+  .message-container {
+    flex: 1;
+    /* Other styles for the message container */
+  }
+  
+  .client-message, .planner-message {
+    margin: 8px;
+    padding: 12px;
+    background-color: green;
+    border-radius: 8px;
+    /* Other styles for the message container */
+  }
+  
+  .client-message {
+    background-color: gold;
+  }
+  
+  /* .message-content {
+    Styles for the message content (message text) 
+    You can customize the font, color, etc. here 
+  } */
+  

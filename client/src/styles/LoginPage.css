@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+.login-page {
+    background-image: url('../eh-background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 99vh;
+    padding-top: 10px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-signup-container {
+    background-color: rgba(255, 255, 255, 0.747);
+    width: 20vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .login-signup-container .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-signup-container input, 
+  .login-signup-container select {
+    height: 2em;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .login-signup-container h2 {
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  .login-signup-btn {
+    width: 100%;
+    border-radius: 10px;
+    border-width: 0px;
+    height: 2em;
+    margin-top: 5px;
+    background-color: green;
+    border-color: green;
+    color: white;
+    font-size: medium;
+    text-decoration: bold;
+  }
+  
+  .login-signup-btn:hover {
+    background-color: rgb(84, 146, 84);
+    cursor: pointer;
+  }
+  
+  .sign-up-login-switch {
+    text-decoration: underline;
+  }
+  
+  .sign-up-login-switch:hover {
+    color:green;
+    cursor: pointer;
+  }
