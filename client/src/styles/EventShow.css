@@ -37,6 +37,23 @@
     padding-bottom: 10px;
     min-width: 300px;
   }
+
+  .edit-event-button {
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+    color: rgb(83, 83, 83);
+    font-size: 12px;
+    padding-top: 2px;
+  }
+
+  .edit-event-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(156, 155, 155);
+  }
   
   .top-info {
     border-bottom: solid;

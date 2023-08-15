@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import { UserContext } from "../context/user";
+import { Link } from 'react-router-dom';
 import EditEvent from "./EditEvent";
 import '../styles/EventShow.css';
 
@@ -47,12 +48,15 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
                     <div className="event-header">
                         <div className="event-name-date-time">
                             <h1 className="event-name">{event.name}</h1>
+                            {user.role === "Planner" ? 
+                                <button className="edit-event-button" onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
+                            : <></>}
                             <p className="event-date-time">{formatDate(event.date)} | {formatTime(event.date)}</p>
                         </div>
                     </div>
                     <div className="event-info">
                         <div className="top-info">
-                            <p><strong>Venue:</strong> {event.venue_name} | {user.role === "Client" ? 
+                            <p><strong>Venue:</strong> <Link to={`/venues/${event.venue_id}`} target="blank"> {event.venue_name}</Link> | {user.role === "Client" ? 
                                 <><strong>Planner: </strong>{event.planner_name}</> 
                                 : 
                                 <><strong>Client: </strong>{event.client_name}</>}
@@ -61,14 +65,11 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
                             <p><strong>Budget:</strong> {typeof event.budget === "number" ? formatMoney(event.budget) : ""}</p>
                         </div>
                         <div className="bottom-info">
-                            <p>Message your {user.role === "Client" ? "Planner" : "Client"}</p>
+                            <p>Message your {user.role === "Client" ? "Planner" : "Client"}:</p>
                         </div>
                     </div>
                     </div>
                 </div>
-            {user.role === "Planner" ? 
-                <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
-            : <></>}
 
             <div className="messages-section">
                 <div className="message-container">
