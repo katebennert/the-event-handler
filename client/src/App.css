@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
 
 /*LOGIN PAGE*/
 
@@ -439,6 +438,7 @@ input::file-selector-button:hover {
 
 .venue-card h1 {
   font-size: 1.3em;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .venue-card img {
@@ -516,6 +516,7 @@ input::file-selector-button:hover {
 
 .venue-name {
   font-size: 36px;
+  font-family: 'Bricolage Grotesque', sans-serif;
   margin: 0;
 }
 
@@ -524,25 +525,35 @@ input::file-selector-button:hover {
   margin: 5px 0;
 }
 
-.create-event-button {
+.create-event-button-container {
   flex: 1;
+  font-weight: bold;
   text-align: left;
   border: solid;
   min-width: 300px;
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: 10px;
   border-color: darkgray;
-  padding: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   width: 300px;
 }
 
-button {
-  padding: 10px 20px;
+.create-event-button {
+  padding: 15px 30px;
   background-color: darkgreen;
+  font-size: 15px;
+  font-weight: bold;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
+}
+
+.create-event-button:hover {
   cursor: pointer;
+  background-color: rgba(0, 100, 0, 0.862);
 }
 
 .venue-info p {

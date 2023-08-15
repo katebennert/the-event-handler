@@ -52,14 +52,12 @@ function VenueShowPage({ venue }) {
                             <h1 className="venue-name">{currentVenue.name}</h1>
                             <p className="venue-address">{currentVenue.address}</p>
                         </div>
-                        <div className="create-event-button">
-                            {user.role === "Planner" && (
-                                <div className="button-container">
-                                    <p>Is this the perfect venue for your event?</p>
-                                    <button onClick={e => setShowNewEventForm(true)}>Create an Event at This Venue</button>
-                                </div>
-                            )}
-                        </div>
+                        {user.role === "Planner" && (
+                            <div className="create-event-button-container">
+                                <p>Is this venue perfect for your event?</p>
+                                <button className="create-event-button" onClick={() => setShowNewEventForm(true)}>Create an Event</button>
+                            </div>
+                        )}
                     </div>
                     <div className="venue-info">
                         <div className="top-info">
