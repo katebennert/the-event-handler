@@ -114,8 +114,6 @@
   /*style greeting?*/
 }
 
-
-
 .nav-links {
   list-style: none;
   margin: 0;
@@ -309,21 +307,6 @@ input::file-selector-button:hover {
   justify-content: space-between;
 }
 
-/* .event-form button {
-  padding: 15px 30px;
-  background-color: darkgreen;
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-  border: none;
-  border-radius: 15px;
-}
-
-.event-form button:hover {
-  cursor: pointer;
-  background-color: rgba(0, 100, 0, 0.862);
-} */
-
 .save-button {
   padding: 15px 30px;
   background-color: darkgreen;
@@ -353,7 +336,6 @@ input::file-selector-button:hover {
   cursor: pointer;
   background-color: rgba(218, 165, 32, 0.785);
 }
-
 
 /*SEARCH BAR*/
 
@@ -578,4 +560,49 @@ input::file-selector-button:hover {
 
 .venue-info p {
   margin: 5px 0;
+}
+
+/* CLIENT LIST */
+
+.client-grid {
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.client-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.client-card-image {
+  padding-right: 20px;
+}
+
+.client-card p {
+  margin: 8px 0;
+}
+
+.client-card ul {
+  font-size: 0.8em;
+}
+
+.client-card h1 {
+  font-size: 1.3em;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.client-card img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 4px;
 }
