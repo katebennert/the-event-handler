@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :role, :name, :email, :bio, :pronouns, :location, :instagram_handle, :pinterest_profile, :phone_number, :image
+  attributes :id, :role, :name, :email, :bio, :pronouns, :location, :instagram_handle, :pinterest_profile, :phone_number, :image, :pinned_photos
 
   # def avatar
   #   object.avatar.attached? ? object.avatar : nil

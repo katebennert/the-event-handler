@@ -4,6 +4,7 @@ import '../styles/ProfilePage.css'
 import ProfileEditForm from './ProfileEditForm';
 import { FaPinterest, FaInstagram, FaMapMarkerAlt, FaMobileAlt, FaEdit } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import EventPhotoGallery from './EventPhotoGallery';
 
 function UserProfile() {
 
@@ -39,6 +40,11 @@ function UserProfile() {
               <p>{user.bio ? user.bio : "+ Tell us about you!"}</p>
             </div>
 
+          </div>
+
+          <div className="photo-gallery-container">
+              <p>Photos from my events:</p>
+              <EventPhotoGallery />
           </div>
         </>
         }
