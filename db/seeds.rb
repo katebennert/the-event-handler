@@ -16,7 +16,11 @@ puts 'Seeding 🌱'
         email: "ryan@example.com",
         password: "devpassword",
         pronouns: "he/him",
-        location: "San Francisco"
+        location: "San Francisco",
+        image: "https://images.unsplash.com/photo-1543132220-3ec99c6094dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2Zlc3Npb25hbCUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        instagram_handle: "ryanandrews",
+        pinterest_profile: "ryan_andrews",
+        phone_number: "415-555-2132"
     )
 
     user3 = User.create!(

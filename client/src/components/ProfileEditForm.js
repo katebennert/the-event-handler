@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user";
 
-function ProfileEditForm({ setIsEditing }) {
+function ProfileEditForm({ onClose }) {
 
     const { user, setUser } = useContext(UserContext);
 
@@ -10,7 +10,10 @@ function ProfileEditForm({ setIsEditing }) {
         pronouns: user.pronouns,
         email: user.email,
         bio: user.bio,
-        location: user.location
+        location: user.location,
+        phone_number: user.phone_number,
+        instagram_handle: user.instagram_handle,
+        pinterest_profile: user.pinterest_profile
       });
      
       const [loading, setLoading] = useState(false);
@@ -56,7 +59,7 @@ function ProfileEditForm({ setIsEditing }) {
             if (r.ok) {
                 r.json().then((userData) => {
                   setLoading(false);
-                  setIsEditing(false);
+                  onClose();
                   setUser(userData)
                 }
                 );
@@ -67,14 +70,117 @@ function ProfileEditForm({ setIsEditing }) {
       }
 
     return (
-        <form onSubmit={handleProfileSubmit} >
+        <div className="edit-profile-form">
+            <form onSubmit={handleProfileSubmit} >
+            <div className="edit-header-buttons">
+                <button className="close-edit-button" type="button" onClick={() => onClose()}>X</button>
+            </div>
+            
+            <img className="edit-cover-image" src="https://images.unsplash.com/photo-1593470309378-bf460a1c7f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="cover" />
 
-                {/**Cover Image Section - Random or preselected */}
-                <img className="cover-image" src="https://images.unsplash.com/photo-1593470309378-bf460a1c7f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="cover" />
+            
+            
+          
+          <div className="profile-edit-container">
+          
+            <div className="edit-profile-header">
+            
+                <div className="form-group">
+                    <label>Name:</label>
+                    <input
+                        type="text"
+                        name="name"
+                        autoComplete="off"
+                        value={updatedUser.name}
+                        onChange={handleChange}
+                        placeholder="+ Add your name"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Pronouns:</label>
+                    <input
+                        type="text"
+                        name="pronouns"
+                        autoComplete="off"
+                        value={updatedUser.pronouns}
+                        onChange={handleChange}
+                        placeholder="+ Add your pronouns"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Location:</label>
+                    <input
+                        type="text"
+                        name="location"
+                        autoComplete="off"
+                        value={updatedUser.location}
+                        onChange={handleChange}
+                        placeholder="+ Add your location"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Phone:</label>
+                    <input
+                        type="text"
+                        name="phone_number"
+                        autoComplete="off"
+                        value={updatedUser.phone_number}
+                        onChange={handleChange}
+                        placeholder="+ Add your phone number"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Instagram:</label>
+                    <input
+                        type="text"
+                        name="instagram_handle"
+                        autoComplete="off"
+                        value={updatedUser.instagram_handle}
+                        onChange={handleChange}
+                        placeholder="+ Add your instagram handle"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Pinterest Profile:</label>
+                    <input
+                        type="text"
+                        name="pinterest_profile"
+                        autoComplete="off"
+                        value={updatedUser.pinterest_profile}
+                        onChange={handleChange}
+                        placeholder="+ Add your pinterest profile"
+                    />
+                </div>   
+            </div>
+
+            <div className="bio-avatar-container-edit">
+                <div className="form-group">
+                    <label>Bio:</label>
+                    <textarea
+                        type="text"
+                        name="bio"
+                        value={updatedUser.bio ? updatedUser.bio : ""}
+                        onChange={handleChange}
+                        placeholder="+ Tell us about you!"
+                    />
+                </div>
+                <div className="edit-avatar-container">
+                <img className="edit-avatar" src={user.image} alt={user.name} />
+            </div>
+            </div>
+
+            
+
+          </div>
             
 
             {/**Avatar Upload Section */}
-                <img className="avatar-edit" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user avatar" />
+                {/* <img className="avatar-edit" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user avatar" />
                 <div className="avatar-form-group">
                 <label htmlFor="avatar" >➕ </label>
                 <input
@@ -86,65 +192,13 @@ function ProfileEditForm({ setIsEditing }) {
                     multiple={false}
                     onChange={handleAvatarChange}
                 />
+                </div> */}
+                <div className="errors">
+                    {errors}
                 </div>
-
-                <div className="profile-text-container">
-                
-                <div className="name-pronouns-header">
-                    <div>
-                    <input
-                        type="text"
-                        name="name"
-                        autoComplete="off"
-                        value={updatedUser.name ? updatedUser.name : "+ Add your name"}
-                        onChange={handleChange}
-                    />
-                    </div>
-                    <div>
-                    <input
-                        type="text"
-                        name="pronouns"
-                        autoComplete="off"
-                        value={updatedUser.pronouns ? updatedUser.pronouns: "+ Add your pronouns"}
-                        onChange={handleChange}
-                    />
-                    </div>
-                </div>
-
-                <div className="info-container">
-
-                    <div className="contact-card">
-                    <h3>Contact Details:</h3>
-                    <p>{updatedUser.email}</p>
-                    <div>
-                    <input
-                        type="text"
-                        name="location"
-                        autoComplete="off"
-                        value={updatedUser.location ? updatedUser.location : "+ Add your location"}
-                        onChange={handleChange}
-                    />
-                    </div>
-                    </div>
-
-                    <div className="bio-container">
-                    <h2>About me: </h2>
-                    <textarea
-                        type="text"
-                        name="bio"
-                        value={updatedUser.bio ? updatedUser.bio : ""}
-                        onChange={handleChange}
-                    />
-                    </div>
-                    
-                </div>
-
-                </div>
-
-
-            <button type="submit">Save Changes</button>
-            {errors}
+                <button className="save-profile-button" type="submit" >Save Changes</button>
             </form>
+        </div>
     )
 }
 

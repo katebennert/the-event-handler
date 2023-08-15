@@ -13,7 +13,6 @@ import EventShowPage from "./EventShowPage";
 import "../App.css";
 import MyClientsPage from "./MyClientsPage";
 
-
 function App() {
     const { user, setUser } = useContext(UserContext);
     const [venue, setVenue] = useState({});
