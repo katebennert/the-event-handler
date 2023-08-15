@@ -35,7 +35,7 @@ function MyEventsPage({ formatDate, formatTime }) {
                     <div key={event.id} className="event-card">
                         <NavLink to={`/events/${event.id}`} className="event-show-link" >
                             <span className="preserve-styles">
-                                <img src={event.venue_image} alt={event.name} />
+                                <img src={event.cover_image} alt={event.name} />
                                 <h1>{event.name}</h1>
                                 <p>{formatDate(event.date)} | {formatTime(event.date)}</p>
                                 <p>@ {event.venue_name}</p>

@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import { UserContext } from "../context/user";
 import EditEvent from "./EditEvent";
+import '../styles/EventShow.css';
 
-function EventShowPage({ formatDate, formatTime }) {
+function EventShowPage({ formatDate, formatTime, formatMoney }) {
 
     const { user } = useContext(UserContext);
     const [event, setEvent] = useState({});
@@ -39,16 +40,32 @@ function EventShowPage({ formatDate, formatTime }) {
             {notFoundMessage}
         </div>
         :
-        <div className="event-show-page">
-            <div>{event.name}</div>
-            <div>{event.event_type}</div>
-            <div>{event.client_name}</div>
-            <div>{event.client_email}</div>
-            <div>{event.budget}</div>
-            <div>{event.venue_name}</div>
-            <div>{event.guest_num}</div>
-            <div>{formatDate(event.date)}</div>
-            <div>{formatTime(event.date)}</div>
+        <div>
+            <div className="event-details">
+                <img src={event.cover_image} alt={event.name} className="event-image" />
+                    <div className="event-text">
+                    <div className="event-header">
+                        <div className="event-name-date-time">
+                            <h1 className="event-name">{event.name}</h1>
+                            <p className="event-date-time">{formatDate(event.date)} | {formatTime(event.date)}</p>
+                        </div>
+                    </div>
+                    <div className="event-info">
+                        <div className="top-info">
+                            <p><strong>Venue:</strong> {event.venue_name} | {user.role === "Client" ? 
+                                <><strong>Planner: </strong>{event.planner_name}</> 
+                                : 
+                                <><strong>Client: </strong>{event.client_name}</>}
+                            </p>
+                            <p><strong>Guest Number:</strong> {event.guest_num}</p>
+                            <p><strong>Budget:</strong> {typeof event.budget === "number" ? formatMoney(event.budget) : ""}</p>
+                        </div>
+                        <div className="bottom-info">
+                            <p>Message your {user.role === "Client" ? "Planner" : "Client"}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             {user.role === "Planner" ? 
                 <button onClick={e => setShowEditEventForm(true)}>Edit This Event</button> 
             : <></>}

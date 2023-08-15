@@ -1,15 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+  .event-details {
+    margin: 20px;
+  }
+  
+  .event-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .event-text {
+    margin-left: 15vw;
+    padding-left: 20px;
+    margin-right: 20vw;
+    border-left: solid;
+    border-width: 1px;
+    border-color: darkgray;
+  }
+  
+  .event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .event-name-date-time {
+    flex: 3;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: darkgray;
+    margin-right: 200px;
+    padding-bottom: 10px;
+    min-width: 300px;
+  }
+  
+  .top-info {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: darkgray;
+    margin-right: 535px;
+    padding-bottom: 20px;
+    min-width: 300px;
+    padding-top: 10px;
+  }
+  
+  .bottom-info {
+    margin-top: 20px;
+  }
+  
+  .event-name {
+    font-size: 36px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    margin: 0;
+  }
+  
+  .venue-date-time {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .event-info p {
+    margin: 5px 0;
+  }
+
 /*MESSAGES*/
 
-.messages-section {
+/* .messages-section {
     display: flex;
     justify-content: space-between;
     width: 50vw;
-    /* Other styles for the messages section container */
+    
   }
   
   .message-container {
     flex: 1;
-    /* Other styles for the message container */
+    
   }
   
   .client-message, .planner-message {
@@ -17,12 +86,12 @@
     padding: 12px;
     background-color: green;
     border-radius: 8px;
-    /* Other styles for the message container */
+    
   }
   
   .client-message {
     background-color: gold;
-  }
+  } */
   
   /* .message-content {
     Styles for the message content (message text) 

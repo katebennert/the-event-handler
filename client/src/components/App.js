@@ -83,7 +83,7 @@ function App() {
                         <VenueShowPage venue={venue} />
                     </Route>
                     <Route path="/events/:eventId">
-                        <EventShowPage formatDate={formatDate} formatTime={formatTime} />
+                        <EventShowPage formatDate={formatDate} formatTime={formatTime} formatMoney={formatMoney} />
                     </Route> 
                     <Route path="/my-clients">
                         <MyClientsPage />

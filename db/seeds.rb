@@ -98,7 +98,8 @@ puts 'Seeding 🌱'
         budget: 10000,
         date: DateTime.new(2023, 8, 15, 15, 30),
         event_type: "Wedding",
-        guest_num: 150
+        guest_num: 150,
+        cover_image: "https://images.unsplash.com/photo-1632199577354-9c5ec9e4f272?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1615&q=80"
     )
     
     event2 = Event.create!(
@@ -109,7 +110,8 @@ puts 'Seeding 🌱'
         budget: 5000,
         date: DateTime.new(2023, 9, 20, 18, 0),
         event_type: "Corporate",
-        guest_num: 100
+        guest_num: 100,
+        cover_image: "https://images.unsplash.com/photo-1496337589254-7e19d01cec44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
     )
     
     # Seed comments
