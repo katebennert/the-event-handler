@@ -89,7 +89,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="clientEmail">Client Email:</label>
+                    <label htmlFor="clientEmail">Your Client's Email:</label>
                     <input 
                         type="email" 
                         id="client_email" 

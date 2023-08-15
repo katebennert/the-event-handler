@@ -309,29 +309,49 @@ input::file-selector-button:hover {
   justify-content: space-between;
 }
 
-.event-form button {
-  padding: 10px 20px;
-  color: #fff;
+/* .event-form button {
+  padding: 15px 30px;
+  background-color: darkgreen;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
+  border-radius: 15px;
 }
 
+.event-form button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 100, 0, 0.862);
+} */
+
 .save-button {
+  padding: 15px 30px;
   background-color: darkgreen;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 15px;
 }
 
 .delete-button {
+  padding: 15px 30px;
   background-color: goldenrod;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 15px;
 }
 
 .save-button:hover {
-  background-color: rgb(0, 164, 0);
+  cursor: pointer;
+  background-color: rgba(0, 100, 0, 0.862);
 }
 
 .delete-button:hover {
-  background-color: gold;
+  cursor: pointer;
+  background-color: rgba(218, 165, 32, 0.785);
 }
 
 
