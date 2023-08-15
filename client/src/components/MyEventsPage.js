@@ -3,6 +3,7 @@ import { UserContext } from "../context/user";
 import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import '../styles/SearchBar.css';
+import '../styles/EventList.css';
 
 function MyEventsPage({ formatDate, formatTime }) {
     const { user } = useContext(UserContext);
@@ -22,25 +23,29 @@ function MyEventsPage({ formatDate, formatTime }) {
     }
 
     return (
-        <div> 
+        <div className="my-events-page"> 
+
             <SearchBar placeholderText={placeholderText} searchCategory={searchCategory} onMyEventsSearchSubmit={handleMyEventsSearchSubmit} />
 
-            {noResults ? "There are no venues that match this search." 
+            {noResults ? "There are no events that match this search." 
             :
-                <div className="event-card">
-                    {eventsToDisplay.map((event) => (
-                            <div key={event.id}>
-                                <p>{event.name}</p>
-                                <p>{event.event_type}</p>
-                                <p>{formatDate(event.date)}</p>
-                                <p>{formatTime(event.date)}</p>
-                                <NavLink to={`/events/${event.id}`}><button>Event Details</button></NavLink>
-                            </div>
-                        )
-                    )}
-                </div>
+
+            <div className="event-grid">
+                {eventsToDisplay.map((event) => (
+                    <div key={event.id} className="event-card">
+                        <NavLink to={`/events/${event.id}`} className="event-show-link" >
+                            <span className="preserve-styles">
+                                <img src={event.venue_image} alt={event.name} />
+                                <h1>{event.name}</h1>
+                                <p>{formatDate(event.date)} | {formatTime(event.date)}</p>
+                                <p>@ {event.venue_name}</p>
+                            </span>
+                        </NavLink>
+                    </div>
+                ))}
+            </div>
             }
-        </div>
+        </div>   
     )
 }
 

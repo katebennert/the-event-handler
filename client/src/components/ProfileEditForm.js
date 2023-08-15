@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user";
 
-function ProfileEditForm({ onClose }) {
+function ProfileEditForm({ onClose, placeholderImage }) {
 
     const { user, setUser } = useContext(UserContext);
 
@@ -91,7 +91,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="name"
                         autoComplete="off"
-                        value={updatedUser.name}
+                        value={updatedUser.name ? updatedUser.name : ""}
                         onChange={handleChange}
                         placeholder="+ Add your name"
                     />
@@ -103,7 +103,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="pronouns"
                         autoComplete="off"
-                        value={updatedUser.pronouns}
+                        value={updatedUser.pronouns ? updatedUser.pronouns : ""}
                         onChange={handleChange}
                         placeholder="+ Add your pronouns"
                     />
@@ -115,7 +115,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="location"
                         autoComplete="off"
-                        value={updatedUser.location}
+                        value={updatedUser.location ? updatedUser.location : ""}
                         onChange={handleChange}
                         placeholder="+ Add your location"
                     />
@@ -127,7 +127,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="phone_number"
                         autoComplete="off"
-                        value={updatedUser.phone_number}
+                        value={updatedUser.phone_number ? updatedUser.phone_number : ""}
                         onChange={handleChange}
                         placeholder="+ Add your phone number"
                     />
@@ -139,7 +139,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="instagram_handle"
                         autoComplete="off"
-                        value={updatedUser.instagram_handle}
+                        value={updatedUser.instagram_handle ? updatedUser.instagram_handle : ""}
                         onChange={handleChange}
                         placeholder="+ Add your instagram handle"
                     />
@@ -151,7 +151,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="pinterest_profile"
                         autoComplete="off"
-                        value={updatedUser.pinterest_profile}
+                        value={updatedUser.pinterest_profile ? updatedUser.pinterest_profile : ""}
                         onChange={handleChange}
                         placeholder="+ Add your pinterest profile"
                     />
@@ -170,7 +170,7 @@ function ProfileEditForm({ onClose }) {
                     />
                 </div>
                 <div className="edit-avatar-container">
-                <img className="edit-avatar" src={user.image} alt={user.name} />
+                <img className="edit-avatar" src={user.image ? user.image : placeholderImage} alt={user.name} />
             </div>
             </div>
 

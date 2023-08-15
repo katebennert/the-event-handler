@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
+
+.event-grid {
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .event-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .event-card p {
+    margin: 8px 0;
+  }
+
+  .event-card ul {
+    font-size: 0.8em;
+  }
+  
+  .event-card h1 {
+    font-size: 1.3em;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+  
+  .event-card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  
+  .event-show-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .event-card span:hover h1 {
+    text-decoration: underline;
+  }
+  
+  .event-card span:hover img {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.258);
+  }
+  
