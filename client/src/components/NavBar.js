@@ -34,7 +34,7 @@ function NavBar() {
         <div className="planner-nav">
             <nav className="navbar">
             <div className="left-section">
-                <span className="greeting">Hello, {user.name}!</span>
+                <span className="greeting">Hello, {user.name ? user.name : "User"}!</span>
             </div>
                 <ul className="nav-links">
                 <li><NavLink to={`/venues`} className="nav-link">Browse All Venues</NavLink></li>
