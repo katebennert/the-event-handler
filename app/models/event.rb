@@ -7,6 +7,6 @@ class Event < ApplicationRecord
     validates :name, presence: true, length: { minimum: 2, maximum: 100 }
     validates :guest_num, :budget, numericality: { only_integer: true }
     validates :date, presence: true
-
+    validates :event_type, presence: true
 
 end
