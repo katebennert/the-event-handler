@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Satisfy&display=swap');
 
-  .event-details {
+  .event-details-container-closed {
     margin: 20px;
   }
   
@@ -86,32 +86,79 @@
 
 /*MESSAGES*/
 
-/* .messages-section {
+  .event-details-container-open {
     display: flex;
-    justify-content: space-between;
+    
+  }
+
+  .event-details-container-open .left-side{
     width: 50vw;
+    overflow: hidden;
+  }
+
+  .event-details-container-open img{
+    margin: 20px;
+    width: 96%;
+  }
+
+  .right-side {
+    width: 50vw;
+    padding: 20px;
     
   }
-  
+
+  .message-box {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    height: 96%;
+  }
+
   .message-container {
+    overflow-y: scroll;
+    height: 90%;
+    margin-bottom: 20px;
+  }
+  
+  .my-comment {
+    color: goldenrod;
+  }
+
+  .your-comment {
+    color: darkgreen;
+  }
+
+  /* MESSAGE FORM */
+
+  .message-form {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .message-form input {
     flex: 1;
-    
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-right: 10px;
   }
   
-  .client-message, .planner-message {
-    margin: 8px;
-    padding: 12px;
+  .send-button {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+  }
+  
+  .send-button:hover {
     background-color: green;
-    border-radius: 8px;
-    
   }
   
-  .client-message {
-    background-color: gold;
-  } */
-  
-  /* .message-content {
-    Styles for the message content (message text) 
-    You can customize the font, color, etc. here 
-  } */
   

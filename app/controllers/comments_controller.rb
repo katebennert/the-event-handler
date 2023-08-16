@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     skip_before_action :planner_auth
 
     def create
-        comment = current_user.create!(comment_params)
+        comment = current_user.comments.create!(comment_params)
         render json: comment, status: :created
     end
 
@@ -30,6 +30,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:body)
+        params.permit(:body, :event_id)
     end
 end

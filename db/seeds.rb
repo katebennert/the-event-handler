@@ -115,13 +115,28 @@ puts 'Seeding 🌱'
     )
     
     # Seed comments
+
+    # Jack and Emily's Wedding
     comment1 = Comment.create!(
-        body: "Looking forward to the big day!",
+        body: "Looking forward to the big day! Can we up the guest count to 200?",
+        user: user1,
+        event: event1
+    )
+
+    comment2 = Comment.create!(
+        body: "Of course!",
+        user: user2,
+        event: event1
+    )
+
+    comment2 = Comment.create!(
+        body: "Thanks Ryan!! 🙏",
         user: user1,
         event: event1
     )
     
-    comment2 = Comment.create!(
+    # Company Anniversary Party
+    comment4 = Comment.create!(
         body: "This venue is perfect for our event!",
         user: user2,
         event: event2

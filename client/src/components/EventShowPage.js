@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from "../context/user";
 import { Link } from 'react-router-dom';
 import EditEvent from "./EditEvent";
+import MessageBox from "./MessageBox";
 import '../styles/EventShow.css';
 
 function EventShowPage({ formatDate, formatTime, formatMoney }) {
@@ -13,6 +14,7 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
     const [notFound, setNotFound] = useState(false);
     const [showEditEventForm, setShowEditEventForm] = useState(false);
     const [comments, setComments] = useState([]);
+    const [showMessages, setShowMessages] = useState(false);
 
     const notFoundMessage = "Oops! Event not found."
 
@@ -34,6 +36,11 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
         setEvent(updatedEvent)
     }
 
+    function handleSetComments(newComment) {
+        console.log(newComment)
+        setComments([...comments, newComment]);
+    }
+
     return (
         <div className="not-found"> 
             {notFound ? 
@@ -42,9 +49,10 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
         </div>
         :
         <div>
-            <div className="event-details">
+            <div className={showMessages ? "event-details-container-open" : "event-details-container-closed"}>
+                <div className="left-side">
                 <img src={event.cover_image} alt={event.name} className="event-image" />
-                    <div className="event-text">
+                <div className="event-text">
                     <div className="event-header">
                         <div className="event-name-date-time">
                             <h1 className="event-name">{event.name}</h1>
@@ -65,20 +73,20 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
                             <p><strong>Budget:</strong> {typeof event.budget === "number" ? formatMoney(event.budget) : ""}</p>
                         </div>
                         <div className="bottom-info">
-                            <p>Message your {user.role === "Client" ? "Planner" : "Client"}:</p>
+                            <button className="show-messages-button" onClick={() => setShowMessages(!showMessages)} >{showMessages ? "Close Messages" : "Open Messages"}</button>
                         </div>
                     </div>
-                    </div>
+                </div>
                 </div>
 
-            <div className="messages-section">
-                <div className="message-container">
-                    {comments.map((c) => (
-                        <div key={c.id} className={c.user_role === "Client" ? "client-message" : "planner-message"}>
-                            <div className="message-content">{c.body}</div>
-                        </div>
-                    ))}
-                </div>
+                {showMessages ? 
+                    <div className="right-side">
+                        <MessageBox comments={comments} event={event} onSetComments={handleSetComments} />
+                    </div>
+                    :
+                    <></>
+                }
+
             </div>
 
                 {showEditEventForm && (
