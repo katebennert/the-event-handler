@@ -49,10 +49,12 @@ function UserProfile() {
 
           </div>
 
+          {user.pinned_photos.length > 0 &&
           <div className="photo-gallery-container">
               <p>Photos from my events:</p>
               <EventPhotoGallery />
           </div>
+          }
         </>
         }
     </div> 
