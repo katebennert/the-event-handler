@@ -8,5 +8,6 @@ class Event < ApplicationRecord
     validates :guest_num, :budget, numericality: { only_integer: true }
     validates :date, presence: true
     validates :event_type, presence: true
+    validates :cover_image, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp, message: "must be a valid URL" }
 
 end
