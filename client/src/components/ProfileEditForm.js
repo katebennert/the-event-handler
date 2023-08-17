@@ -42,6 +42,19 @@ function ProfileEditForm({ onClose }) {
     
       function handleProfileSubmit(e) {
         e.preventDefault();
+
+        // Convert empty values to null
+        const updatedUserWithNull = Object.entries(updatedUser).reduce(
+            (acc, [key, value]) => {
+                if (value === "null") {
+                    acc[key] = null;
+                } else {
+                    acc[key] = value;
+                }
+            return acc;
+        },
+            {}
+        );
       
         // create formData obj
         const formData = new FormData();
@@ -56,10 +69,15 @@ function ProfileEditForm({ onClose }) {
         // formData.append('instagram_handle', updatedUser.instagram_handle);
         // formData.append('pinterest_profile', updatedUser.pinterest_profile);
 
-        for (const key in updatedUser) {
-            if (updatedUser.hasOwnProperty(key) && updatedUser[key]) {
-              formData.append(key, updatedUser[key]);
-            }
+        // for (const key in updatedUser) {
+        //     if (updatedUser.hasOwnProperty(key) && updatedUser[key]) {
+        //       formData.append(key, updatedUser[key]);
+        //     }
+        // }
+
+        // Append values to formData object
+        for (const [key, value] of Object.entries(updatedUserWithNull)) {
+            formData.append(key, value);
         }
 
         // append avatar to formData obj
