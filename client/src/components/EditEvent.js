@@ -127,7 +127,7 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                     <input 
                         type="text" 
                         id="client_name" 
-                        value={event.client_name} 
+                        value={event.client_name ? event.client_name : event.client_email} 
                         disabled 
                     />
                 </div>

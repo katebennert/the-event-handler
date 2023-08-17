@@ -6,7 +6,15 @@ class PlannerSerializer < UserSerializer
   has_many :clients, through: :events
 
   def unique_clients
-    object.clients.uniq if object.clients
+    object.clients.uniq.map do |client|
+      {
+        avatar_url: client.avatar.service_url,
+        name: client.name,
+        pronouns: client.pronouns,
+        email: client.email,
+        id: client.id
+      }
+    end
   end
 
   def unique_venues

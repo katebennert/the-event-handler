@@ -32,15 +32,15 @@ function MyClientsPage() {
                 {clientsToDisplay.map((client) => (
                     <div key={client.id} className="client-card">
                         <div className="client-card-image">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt={client.name} />
+                            <img src={client.avatar_url} alt={client.name} />
                         </div>
                         <div className="client-card-text">
-                            <h1>{client.name}</h1>
+                            <h1>{client.name ? client.name : client.email}</h1>
                             <p>{client.pronouns}</p>
                             <p>Events: </p>
                             <ul>
                                 {user.events.filter(ev => ev.client_email === client.email).map(ev => 
-                                    <li>{ev.name}</li>
+                                    <li key={ev.id} >{ev.name}</li>
                                 )}
                             </ul>
                         </div>
