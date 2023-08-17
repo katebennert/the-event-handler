@@ -12,7 +12,6 @@ function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
 
   const coverImage = "https://images.unsplash.com/photo-1593470309378-bf460a1c7f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80";
-  const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541";
 
   function handleClose() {
     setIsEditing(false);
@@ -21,12 +20,12 @@ function UserProfile() {
   return (
     <div className="profile-page-container">
       {isEditing ? 
-        <ProfileEditForm onClose={handleClose} placeholderImage={placeholderImage} />
+        <ProfileEditForm onClose={handleClose} />
       :
         <>
           <img className="cover-image" src={coverImage} alt="cover" />
           
-          {user.avatar && <img className="avatar" src={user.avatar_url} alt="Avatar" />}
+          <img className="avatar" src={user.avatar_url} alt="Avatar" />
           <button className="edit-profile-button" onClick={e => setIsEditing(true)} >{<FaEdit />} Edit Profile</button>
           
           <div className="profile-text-container">
