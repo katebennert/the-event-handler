@@ -52,7 +52,7 @@ function MessageBox({ comments, event, onSetComments }) {
         <div className="message-box">
             <div className="message-container">
                 {comments.map(c => 
-                    <p><strong className={c.user_email === user.email ? "my-comment" : "your-comment"}>{c.user_name}</strong>: {c.body}</p>
+                    <p><strong className={c.user_email === user.email ? "my-comment" : "your-comment"}>{c.user_name ? c.user_name : c.user_email}</strong>: {c.body}</p>
                 )}
             </div>
         

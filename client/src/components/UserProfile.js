@@ -34,11 +34,11 @@ function UserProfile() {
               <h1 className="user-name">{user.name ? user.name : "+ Add your name"}</h1>
               <p className="pronouns" >{user.pronouns}</p>
               <p className="contact-info" >
-                {user.location && <span><FaMapMarkerAlt />{user.location} | </span>}
+                {user.location && <span><FaMapMarkerAlt /> {user.location} | </span>}
                 {user.email && <span><MdEmail /> {user.email}</span>}
-                {user.phone_number && <span><FaMobileAlt /> | {user.phone_number}</span>}
-                {user.instagram_handle && <span>| <FaInstagram /> {user.instagram_handle}</span>}
-                {user.pinterest_profile && <span>| <FaPinterest /> {user.pinterest_profile}</span>}
+                {user.phone_number && <span> | <FaMobileAlt /> {user.phone_number}</span>}
+                {user.instagram_handle && <span> | <FaInstagram /> {user.instagram_handle}</span>}
+                {user.pinterest_profile && <span> | <FaPinterest /> {user.pinterest_profile}</span>}
               </p>
               
             </div>

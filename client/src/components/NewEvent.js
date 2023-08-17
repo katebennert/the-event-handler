@@ -11,6 +11,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
         name: "",
         venue_id: currentVenue.id,
         client_email: "",
+        cover_image: "",
         budget: "",
         date: "",
         event_type: "",
@@ -95,6 +96,17 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                         id="client_email" 
                         onChange={handleChange}
                         value={newEvent.client_email} 
+                        required 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="coverImage">Cover Image URL:</label>
+                    <input 
+                        type="text" 
+                        id="cover_image" 
+                        onChange={handleChange}
+                        value={newEvent.cover_image} 
                         required 
                     />
                 </div>

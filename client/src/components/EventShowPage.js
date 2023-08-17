@@ -37,7 +37,6 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
     }
 
     function handleSetComments(newComment) {
-        console.log(newComment)
         setComments([...comments, newComment]);
     }
 
@@ -67,7 +66,7 @@ function EventShowPage({ formatDate, formatTime, formatMoney }) {
                             <p><strong>Venue:</strong> <Link to={`/venues/${event.venue_id}`} target="blank"> {event.venue_name}</Link> | {user.role === "Client" ? 
                                 <><strong>Planner: </strong>{event.planner_name}</> 
                                 : 
-                                <><strong>Client: </strong>{event.client_name}</>}
+                                <><strong>Client: </strong>{event.client_name ? event.client_name : event.client_email}</>}
                             </p>
                             <p><strong>Guest Number:</strong> {event.guest_num}</p>
                             <p><strong>Budget:</strong> {typeof event.budget === "number" ? formatMoney(event.budget) : ""}</p>

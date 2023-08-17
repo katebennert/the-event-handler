@@ -11,6 +11,7 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
     const [currentEvent, setCurrentEvent] = useState({
         name: event.name,
         budget: event.budget,
+        cover_image: event.cover_image,
         date: formatDateTime(event.date),
         event_type: event.event_type,
         guest_num: event.guest_num
@@ -139,6 +140,17 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                         id="budget" 
                         onChange={handleChange}
                         value={currentEvent.budget} 
+                        required 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="coverImage">Cover Image:</label>
+                    <input 
+                        type="text" 
+                        id="cover_image" 
+                        onChange={handleChange}
+                        value={currentEvent.cover_image} 
                         required 
                     />
                 </div>
