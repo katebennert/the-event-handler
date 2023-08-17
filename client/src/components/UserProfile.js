@@ -33,7 +33,13 @@ function UserProfile() {
             <div className="profile-header">
               <h1 className="user-name">{user.name ? user.name : "+ Add your name"}</h1>
               <p className="pronouns" >{user.pronouns}</p>
-              <p className="contact-info" ><FaMapMarkerAlt />{user.location} | <MdEmail /> {user.email} | <FaMobileAlt /> {user.phone_number} {user.instagram_handle ? <span>| <FaInstagram /> {user.instagram_handle}</span> : <span></span>}{user.pinterest_profile ? <span>| <FaPinterest /> {user.pinterest_profile}</span> : <span></span>}</p>
+              <p className="contact-info" >
+                {user.location && <span><FaMapMarkerAlt />{user.location} | </span>}
+                {user.email && <span><MdEmail /> {user.email}</span>}
+                {user.phone_number && <span><FaMobileAlt /> | {user.phone_number}</span>}
+                {user.instagram_handle && <span>| <FaInstagram /> {user.instagram_handle}</span>}
+                {user.pinterest_profile && <span>| <FaPinterest /> {user.pinterest_profile}</span>}
+              </p>
               
             </div>
 

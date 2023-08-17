@@ -47,14 +47,20 @@ function ProfileEditForm({ onClose }) {
         const formData = new FormData();
 
         // append other values to formData obj
-        formData.append('name', updatedUser.name);
-        formData.append('pronouns', updatedUser.pronouns);
-        formData.append('email', updatedUser.email);
-        formData.append('bio', updatedUser.bio);
-        formData.append('location', updatedUser.location);
-        formData.append('phone_number', updatedUser.phone_number);
-        formData.append('instagram_handle', updatedUser.instagram_handle);
-        formData.append('pinterest_profile', updatedUser.pinterest_profile);
+        // formData.append('name', updatedUser.name);
+        // formData.append('pronouns', updatedUser.pronouns);
+        // formData.append('email', updatedUser.email);
+        // formData.append('bio', updatedUser.bio);
+        // formData.append('location', updatedUser.location);
+        // formData.append('phone_number', updatedUser.phone_number);
+        // formData.append('instagram_handle', updatedUser.instagram_handle);
+        // formData.append('pinterest_profile', updatedUser.pinterest_profile);
+
+        for (const key in updatedUser) {
+            if (updatedUser.hasOwnProperty(key) && updatedUser[key]) {
+              formData.append(key, updatedUser[key]);
+            }
+        }
 
         // append avatar to formData obj
         if (avatar) {
