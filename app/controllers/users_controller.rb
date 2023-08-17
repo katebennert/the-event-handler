@@ -18,7 +18,6 @@ class UsersController < ApplicationController
         if params[:avatar]
             current_user.avatar.attach(params[:avatar])
         end
-        byebug
         current_user.update!(user_params)
         render json: current_user, status: :accepted
     end
