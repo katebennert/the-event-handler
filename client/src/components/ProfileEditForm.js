@@ -188,7 +188,9 @@ function ProfileEditForm({ onClose }) {
           </div>
             
                 <div className="errors">
-                    {errors}
+                    {errors.map((err) => (
+                        <p key={err}>{err}</p>
+                    ))}
                 </div>
                 <button className="save-profile-button" type="submit" >Save Changes</button>
             </form>
