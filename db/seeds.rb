@@ -1,8 +1,14 @@
 puts 'Seeding 🌱'
 
-    # Seed users
+    #destroy_all
+
+    Comment.destroy_all
+    Event.destroy_all
+    Venue.destroy_all
     User.destroy_all
 
+    # Seed users
+    
     user1 = User.create!(
         role: "Client",
         name: "Jane Smith",
@@ -36,7 +42,6 @@ puts 'Seeding 🌱'
     )
     
     # Seed venues
-    Venue.destroy_all
 
     venue1 = Venue.create!(
         name: "Seacrest Elegant Ballroom",
@@ -94,7 +99,6 @@ puts 'Seeding 🌱'
     )
     
     # Seed events
-    Event.destroy_all
 
     event1 = Event.create!(
         client: user1,
@@ -121,7 +125,6 @@ puts 'Seeding 🌱'
     )
     
     # Seed comments
-    Comment.destroy_all
 
     # Jack and Emily's Wedding
     comment1 = Comment.create!(
