@@ -15,8 +15,12 @@ class UsersController < ApplicationController
     end
 
     def edit_profile
-      current_user.update!(user_params)
-      render json: current_user, status: :accepted
+        if params[:avatar]
+            current_user.avatar.attach(params[:avatar])
+        end
+
+        current_user.update!(user_params)
+        render json: current_user, status: :accepted
     end
 
     # def set_avatar
@@ -37,6 +41,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:email, :name, :password, :password_confirmation, :image, :bio, :avatar, :id, :role, :phone_number, :instagram_handle, :pinterest_profile, :pronouns, :location)
+        params.permit(:email, :name, :password, :password_confirmation, :image, :bio, :id, :role, :phone_number, :instagram_handle, :pinterest_profile, :pronouns, :location, :avatar)
     end
+
 end

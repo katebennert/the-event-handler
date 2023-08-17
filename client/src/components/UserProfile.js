@@ -26,7 +26,7 @@ function UserProfile() {
         <>
           <img className="cover-image" src={coverImage} alt="cover" />
           
-          <img className="avatar" src={user.image ? user.image : placeholderImage } alt={user.name} />
+          {user.avatar && <img className="avatar" src={user.avatar_url} alt="Avatar" />}
           <button className="edit-profile-button" onClick={e => setIsEditing(true)} >{<FaEdit />} Edit Profile</button>
           
           <div className="profile-text-container">

@@ -20,12 +20,14 @@ function ProfileEditForm({ onClose, placeholderImage }) {
       const [errors, setErrors] = useState([]);
       
       const [avatar, setAvatar] = useState(null);
-      const [selectedFile, setSelectedFile] = useState(null);
+      const [avatarPreview, setAvatarPreview] = useState(user.avatar_url);
     
       function handleAvatarChange(e) {
-        const file = e.target.files[0];
-        setSelectedFile({ avatar: file });
-        setAvatar(URL.createObjectURL(file));
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            setAvatar(selectedFile);
+            setAvatarPreview(URL.createObjectURL(selectedFile));
+        }
       }
     
       function handleChange(e) {
@@ -40,19 +42,28 @@ function ProfileEditForm({ onClose, placeholderImage }) {
     
       function handleProfileSubmit(e) {
         e.preventDefault();
-       // const formData = new FormData();
-        
-        //console.log('Selected File:', selectedFile); // Debug statement
-       // formData.append('avatar', selectedFile.avatar);
-    
-       // console.log('Form Data:', formData.get('avatar')); // Debug statement
+      
+        // create formData obj
+        const formData = new FormData();
+
+        // append other values to formData obj
+        formData.append('name', updatedUser.name);
+        formData.append('pronouns', updatedUser.pronouns);
+        formData.append('email', updatedUser.email);
+        formData.append('bio', updatedUser.bio);
+        formData.append('location', updatedUser.location);
+        formData.append('phone_number', updatedUser.phone_number);
+        formData.append('instagram_handle', updatedUser.instagram_handle);
+        formData.append('pinterest_profile', updatedUser.pinterest_profile);
+
+        // append avatar to formData obj
+        if (avatar) {
+            formData.append('avatar', avatar);
+        }
     
         fetch('/users/edit', {
             method: "PATCH",
-            headers: {
-             "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedUser),
+            body: formData,
           })
           .then((r) => {
             setLoading(true);
@@ -170,17 +181,30 @@ function ProfileEditForm({ onClose, placeholderImage }) {
                     />
                 </div>
                 <div className="edit-avatar-container">
-                <img className="edit-avatar" src={user.image ? user.image : placeholderImage} alt={user.name} />
+                    <label htmlFor="avatar">Avatar:</label>
+                    <input
+                        type="file"
+                        id="avatar"
+                        accept="image/*"
+                        onChange={handleAvatarChange}
+                    />
+                    {avatarPreview && <img className="avatar-preview" src={avatarPreview} alt="Avatar Preview" />}
+                </div>
             </div>
-            </div>
-
-            
 
           </div>
             
+                <div className="errors">
+                    {errors}
+                </div>
+                <button className="save-profile-button" type="submit" >Save Changes</button>
+            </form>
+        </div>
+    )
+}
 
-            {/**Avatar Upload Section */}
-                {/* <img className="avatar-edit" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user avatar" />
+/**Avatar Upload Section */
+                /* <img className="avatar-edit" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user avatar" />
                 <div className="avatar-form-group">
                 <label htmlFor="avatar" >➕ </label>
                 <input
@@ -192,14 +216,6 @@ function ProfileEditForm({ onClose, placeholderImage }) {
                     multiple={false}
                     onChange={handleAvatarChange}
                 />
-                </div> */}
-                <div className="errors">
-                    {errors}
-                </div>
-                <button className="save-profile-button" type="submit" >Save Changes</button>
-            </form>
-        </div>
-    )
-}
+                </div> */
 
 export default ProfileEditForm;
