@@ -6,14 +6,14 @@ function ProfileEditForm({ onClose }) {
     const { user, setUser } = useContext(UserContext);
 
     const [updatedUser, setUpdatedUser] = useState({
-        name: user.name,
-        pronouns: user.pronouns,
+        name: user.name ?? "",
+        pronouns: user.pronouns ?? "",
         email: user.email,
-        bio: user.bio,
-        location: user.location,
-        phone_number: user.phone_number,
-        instagram_handle: user.instagram_handle,
-        pinterest_profile: user.pinterest_profile
+        bio: user.bio ?? "",
+        location: user.location ?? "",
+        phone_number: user.phone_number ?? "",
+        instagram_handle: user.instagram_handle ?? "",
+        pinterest_profile: user.pinterest_profile ?? ""
       });
      
       const [loading, setLoading] = useState(false);
@@ -38,45 +38,16 @@ function ProfileEditForm({ onClose }) {
             ...updatedUser,
             [name]: value
         });
+
     }
     
       function handleProfileSubmit(e) {
         e.preventDefault();
 
-        // Convert empty values to null
-        const updatedUserWithNull = Object.entries(updatedUser).reduce(
-            (acc, [key, value]) => {
-                if (value === "null") {
-                    acc[key] = null;
-                } else {
-                    acc[key] = value;
-                }
-            return acc;
-        },
-            {}
-        );
-      
-        // create formData obj
         const formData = new FormData();
 
-        // append other values to formData obj
-        // formData.append('name', updatedUser.name);
-        // formData.append('pronouns', updatedUser.pronouns);
-        // formData.append('email', updatedUser.email);
-        // formData.append('bio', updatedUser.bio);
-        // formData.append('location', updatedUser.location);
-        // formData.append('phone_number', updatedUser.phone_number);
-        // formData.append('instagram_handle', updatedUser.instagram_handle);
-        // formData.append('pinterest_profile', updatedUser.pinterest_profile);
-
-        // for (const key in updatedUser) {
-        //     if (updatedUser.hasOwnProperty(key) && updatedUser[key]) {
-        //       formData.append(key, updatedUser[key]);
-        //     }
-        // }
-
         // Append values to formData object
-        for (const [key, value] of Object.entries(updatedUserWithNull)) {
+        for (const [key, value] of Object.entries(updatedUser)) {
             formData.append(key, value);
         }
 
@@ -112,8 +83,6 @@ function ProfileEditForm({ onClose }) {
             </div>
             
             <img className="edit-cover-image" src="https://images.unsplash.com/photo-1593470309378-bf460a1c7f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="cover" />
-
-            
             
           
           <div className="profile-edit-container">
@@ -126,7 +95,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="name"
                         autoComplete="off"
-                        value={updatedUser.name ? updatedUser.name : ""}
+                        value={updatedUser.name}
                         onChange={handleChange}
                         placeholder="+ Add your name"
                     />
@@ -138,7 +107,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="pronouns"
                         autoComplete="off"
-                        value={updatedUser.pronouns ? updatedUser.pronouns : ""}
+                        value={updatedUser.pronouns}
                         onChange={handleChange}
                         placeholder="+ Add your pronouns"
                     />
@@ -150,7 +119,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="location"
                         autoComplete="off"
-                        value={updatedUser.location ? updatedUser.location : ""}
+                        value={updatedUser.location}
                         onChange={handleChange}
                         placeholder="+ Add your location"
                     />
@@ -162,7 +131,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="phone_number"
                         autoComplete="off"
-                        value={updatedUser.phone_number ? updatedUser.phone_number : ""}
+                        value={updatedUser.phone_number}
                         onChange={handleChange}
                         placeholder="+ Add your phone number"
                     />
@@ -174,7 +143,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="instagram_handle"
                         autoComplete="off"
-                        value={updatedUser.instagram_handle ? updatedUser.instagram_handle : ""}
+                        value={updatedUser.instagram_handle}
                         onChange={handleChange}
                         placeholder="+ Add your instagram handle"
                     />
@@ -186,7 +155,7 @@ function ProfileEditForm({ onClose }) {
                         type="text"
                         name="pinterest_profile"
                         autoComplete="off"
-                        value={updatedUser.pinterest_profile ? updatedUser.pinterest_profile : ""}
+                        value={updatedUser.pinterest_profile}
                         onChange={handleChange}
                         placeholder="+ Add your pinterest profile"
                     />
@@ -199,7 +168,7 @@ function ProfileEditForm({ onClose }) {
                     <textarea
                         type="text"
                         name="bio"
-                        value={updatedUser.bio ? updatedUser.bio : ""}
+                        value={updatedUser.bio}
                         onChange={handleChange}
                         placeholder="+ Tell us about you!"
                     />
@@ -226,20 +195,5 @@ function ProfileEditForm({ onClose }) {
         </div>
     )
 }
-
-/**Avatar Upload Section */
-                /* <img className="avatar-edit" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="user avatar" />
-                <div className="avatar-form-group">
-                <label htmlFor="avatar" >➕ </label>
-                <input
-                    type="file"
-                    id="avatar"
-                    name="avatar"
-                    direct_upload="true"
-                    accept="image/png, image/jpeg"
-                    multiple={false}
-                    onChange={handleAvatarChange}
-                />
-                </div> */
 
 export default ProfileEditForm;
