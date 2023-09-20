@@ -192,7 +192,7 @@ function ProfileEditForm({ onClose }) {
                         <p key={err}>{err}</p>
                     ))}
                 </div>
-                <button className="save-profile-button" type="submit" >Save Changes</button>
+                <button className="save-profile-button" type="submit" >{loading ? "Loading..." : "Save Changes"}</button>
             </form>
         </div>
     )

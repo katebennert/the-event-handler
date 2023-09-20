@@ -23,7 +23,7 @@ function Home() {
     return () => {
       clearInterval(interval); // Clean up the interval when the component unmounts
     };
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="home-page">
@@ -32,7 +32,7 @@ function Home() {
           <div key={index} className="carousel-slide">
             <img
               src={imageUrl}
-              alt={`Image ${index}`}
+              alt={index}
               className={
                 index === currentImageIndex ? "active" : "inactive"
               }

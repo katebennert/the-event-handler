@@ -11,7 +11,7 @@ function EventPhotoGallery() {
         <div className="photo-gallery">
             {images.map((image, index) => (
                 <div key={index} className="photo-item">
-                    <img src={image} alt={`Image ${index}`} />
+                    <img src={image} alt={index} />
                 </div>
             ))}
         </div>

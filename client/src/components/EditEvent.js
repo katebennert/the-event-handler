@@ -189,7 +189,7 @@ function EditEvent({ onCloseEditEventForm, onUpdateEvent, event }) {
                 </div>
 
                 <div className="button-container">
-                    <button className="save-button" type="submit">Save Event</button>
+                    <button className="save-button" type="submit">{isLoading ? "Loading..." : "Save Event"}</button>
                     <button className="delete-button" type="button" onClick={handleEventDelete} >Delete This Event</button>
                 </div>
 

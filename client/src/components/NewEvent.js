@@ -156,7 +156,7 @@ function NewEvent({ onCloseNewEventForm, currentVenue }) {
                 </div>
 
                 <div className="button-container">
-                    <button className="save-button" type="submit">Save Event</button>
+                    <button className="save-button" type="submit">{isLoading ? "Loading..." : "Save Event"}</button>
                 </div>
 
                 <div className="errors-container">

@@ -44,6 +44,7 @@ function MessageBox({ comments, event, onSetComments }) {
             });
             } else {
                 r.json().then((err) => setErrors(err.errors));
+                errors.forEach(err => console.log(err));
             }
         });
     }
@@ -52,7 +53,9 @@ function MessageBox({ comments, event, onSetComments }) {
         <div className="message-box">
             <div className="message-container">
                 {comments.map(c => 
-                    <p><strong className={c.user_email === user.email ? "my-comment" : "your-comment"}>{c.user_name ? c.user_name : c.user_email}</strong>: {c.body}</p>
+                    <p key={c.id}>
+                        <strong className={c.user_email === user.email ? "my-comment" : "your-comment"}>{c.user_name ? c.user_name : c.user_email}</strong>: {c.body}
+                    </p>
                 )}
             </div>
         
@@ -66,7 +69,7 @@ function MessageBox({ comments, event, onSetComments }) {
                         onChange={handleChange}
                         placeholder="Send a message"
                     />
-                    <button type="submit" className="send-button"><FaPaperPlane /></button>
+                    <button type="submit" className="send-button">{isLoading ? "..." : <FaPaperPlane />}</button>
                 </form>
             </div>
         </div>
