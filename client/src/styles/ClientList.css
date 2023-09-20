@@ -15,12 +15,26 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    display: flex;
-    flex-direction: row;
   }
   
   .client-card-image {
     padding-right: 20px;
+  }
+
+  .client-card-header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .client-card-text h1 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .client-card-header p {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 12px;
   }
   
   .client-card p {

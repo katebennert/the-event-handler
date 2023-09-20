@@ -3,6 +3,7 @@ import { UserContext } from "../context/user";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import '../styles/SearchBar.css';
+import { NavLink } from "react-router-dom";
 
 function MyVenuesPage({ handleVenueSet }) {
     const { user } = useContext(UserContext);
@@ -45,7 +46,10 @@ function MyVenuesPage({ handleVenueSet }) {
                             <p>My events at this venue: </p>
                             <ul>
                                 {myEventsAtVenue(ven).map(ev => 
-                                    <li key={ev.id} >{ev.name}</li>)}
+                                    <NavLink key={ev.id} to={`/events/${ev.id}`}>
+                                        <li key={ev.id} >{ev.name}</li>
+                                    </NavLink>
+                                )}
                             </ul>
                         </span>
                     </Link>

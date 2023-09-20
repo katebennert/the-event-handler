@@ -3,7 +3,7 @@ import { UserContext } from "../context/user";
 import SearchBar from "./SearchBar";
 import '../styles/ClientList.css';
 import '../styles/SearchBar.css';
-//import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function MyClientsPage() {
     const { user } = useContext(UserContext);
@@ -31,16 +31,25 @@ function MyClientsPage() {
             <div className="client-grid">
                 {clientsToDisplay.map((client) => (
                     <div key={client.id} className="client-card">
-                        <div className="client-card-image">
-                            <img src={client.avatar_url} alt={client.name} />
+                        <div className="client-card-top">
+                            <div className="client-card-image">
+                                <img src={client.avatar_url} alt={client.name} />
+                            </div>
+                            <div className="client-card-text">
+                                <div className="client-card-header">
+                                    <h1>{client.name ? client.name : client.email}</h1>
+                                    <p>{client.pronouns}</p>
+                                </div>
+                                <p>{client.email}</p>
+                            </div>
                         </div>
-                        <div className="client-card-text">
-                            <h1>{client.name ? client.name : client.email}</h1>
-                            <p>{client.pronouns}</p>
-                            <p>Events: </p>
+                        <div className="event-list">
+                        <p>Events: </p>
                             <ul>
                                 {user.events.filter(ev => ev.client_email === client.email).map(ev => 
-                                    <li key={ev.id} >{ev.name}</li>
+                                    <NavLink key={ev.id} to={`/events/${ev.id}`}>
+                                        <li>{ev.name}</li>
+                                    </NavLink>
                                 )}
                             </ul>
                         </div>
