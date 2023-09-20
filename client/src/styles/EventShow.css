@@ -86,6 +86,20 @@
     margin: 5px 0;
   }
 
+  .show-messages-button {
+    padding: 5px 10px;
+    background-color: darkgreen;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+  }
+
+  .show-messages-button:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+
 /*MESSAGES*/
 
   .event-details-container-open {
