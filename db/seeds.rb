@@ -15,7 +15,8 @@ puts 'Seeding 🌱'
         email: "jane@example.com",
         password: "devpassword",
         pronouns: "she/her",
-        location: "New York"
+        location: "New York",
+        phone_number: "555-555-1234",
     )
     
     user2 = User.create!(
@@ -76,7 +77,7 @@ puts 'Seeding 🌱'
         image: "https://images.unsplash.com/photo-1505944357431-27579db47558?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80"
     )
 
-    venue3 = Venue.create!(
+    venue4 = Venue.create!(
         name: "Egret's Nest at Bayou Barn",
         seated_guest_capacity: 200,
         venue_type: "Outdoor",
@@ -87,7 +88,7 @@ puts 'Seeding 🌱'
         image: "https://images.unsplash.com/photo-1571268373914-e888c6dafeff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
     )
 
-    venue4 = Venue.create!(
+    venue5 = Venue.create!(
         name: "River's Edge at Bayou Barn",
         seated_guest_capacity: 200,
         venue_type: "Outdoor",
