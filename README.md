@@ -1,6 +1,15 @@
+<br/>
+<p align="center">
+    <a href="https://the-event-handler.onrender.com/" target="_blank">
+        <img width="50%" src="https://i.imgur.com/FohAorm.png?1" alt="UpFed logo">
+    </a>
+</p>
+
 # EventHandler
 
 EventHandler is a web application built using React for the frontend, a Rails API for the backend, and PostgreSQL database. The app is designed for two different types of users (Planners and Clients) to interact with each other and a common event. Planners have enhanced permissions that allow them to manage events and associated details. The app's primary purpose is to facilitate planning large high-caliber events by providing a platform for seamless communication and easy access to event information. EventHandler was created with small event planning businesses in mind to make a job with so many moving pieces a little less complicated.
+
+[Watch a video demo of EventHandler.](https://www.loom.com/share/20efed7cf8b84cc1b3e95eab96ccc9e3?sid=ce27b095-0948-406b-94fd-dae5ab5791b6)
 
 ## Table of Contents
 - [Overview](#overview)
